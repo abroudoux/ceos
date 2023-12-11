@@ -97,3 +97,11 @@ body::-webkit-scrollbar {
   @apply flex-row-center bg-primary text-white rounded-lg;
 }
 
+.background-gradient {
+  background: -webkit-linear-gradient(var(--primary), var(--primary-foreground));
+}
+
+.page {
+  @apply flex-col-center-center py-10;
+}
+

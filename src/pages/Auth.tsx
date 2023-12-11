@@ -1,5 +1,10 @@
+import AuthForm from "@/components/AuthForm/AuthForm";
+
+
 export default function Auth() {
     return (
-        <div>Auth</div>
+        <section className="page">
+            <AuthForm />
+        </section>
     );
 };

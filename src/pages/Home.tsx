@@ -1,20 +1,11 @@
-import React from 'react';
-
-import HelloWorld from '../components/HelloWorld';
-import Card from '@/components/Card';
+import { CourseCard } from "@/components/CourseCard/CourseCard";
 
 
 export default function Home() {
-
 	return (
-
-		<section>
-
-			<h1>Home</h1>
-			<Card title="Card Title"/>
-			<HelloWorld />
-
+		<section className="page">
+			<h1 className="text-3xl">Recommendations</h1>
+			<CourseCard topic="code" title="Listes ul/ol" description="Appenez à utiliser les listes en HTML" duration="30min" level="Facile"/>
 		</section>
-  	)
-
-}
+  	);
+};

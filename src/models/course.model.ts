@@ -1,4 +1,4 @@
-export type Course = {
+export type CourseProps = {
     id : number;
     topic : string;
     title : string;

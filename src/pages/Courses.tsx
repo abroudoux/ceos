@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
-import { Course } from "@/models/course.model";
+import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
 import useStore from "@/lib/store";
 
@@ -10,7 +10,7 @@ import { CourseCard } from "@/components/CourseCard/CourseCard";
 
 export default function Courses() {
 	const { isLoading, setIsLoading } = useStore();
-	const [courses, setCourses] = useState<Course[]>([]);
+	const [courses, setCourses] = useState<CourseProps[]>([]);
 
 	useEffect(() => {
 		getCourses();
@@ -36,7 +36,7 @@ export default function Courses() {
 
 	return (
 		<section className="page">
-			<h1 className="text-3xl mb-10">Toutes les leçons</h1>
+			<h1 className="text-3xl mb-3">Toutes les leçons</h1>
 			{courses.map((course) => (
         		<CourseCard key={course.id} course={course} />
       		))}

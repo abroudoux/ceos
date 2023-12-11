@@ -21,9 +21,7 @@ const rootContainer = document.getElementById("root");
 const root = createRoot(rootContainer!);
 
 const AppRoutes = () => {
-
     const location = useLocation();
-
     const showNavBar = ["/", "/courses", "/profile"];
     const shouldShowNavBar = showNavBar.includes(location.pathname);
 
@@ -31,10 +29,8 @@ const AppRoutes = () => {
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/courses" element={<Courses />}>
-                    {/* <Route path="/:id" element={<Course />}></Route> */}
-                </Route>
-                {/* <Route path="/courses/:id" element={<Course />} /> */}
+                <Route path="/courses" element={<Courses />}></Route>
+                <Route path="courses/:id" element={<Course />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
                 <Route path="/ui" element={<DesignSystem />}></Route> 

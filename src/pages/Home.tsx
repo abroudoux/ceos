@@ -44,7 +44,7 @@ export default function Home() {
 					<CourseCard key={latestCourse.title} course={latestCourse} />
 				)}
 			</div>
-			<h1 className="text-3xl mb-10">Recommandations</h1>
+			<h1 className="text-3xl mb-3">Recommandations</h1>
 			{courses.map((course) => (
         		<CourseCard key={course.title} course={course} />
       		))}

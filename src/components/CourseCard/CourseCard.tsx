@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faClock } from "@fortawesome/free-solid-svg-icons";
 
-import { Course } from "@/models/course.model";
+import { CourseProps } from "@/models/course.model";
 
 import { Badge } from "@/components/ui/badge"
 
 
-
 interface CourseCardProps {
-    course: Course;
+    course: CourseProps;
 };
 
 export const CourseCard : React.FC<CourseCardProps> = ({ course }) => {

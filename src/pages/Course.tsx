@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-import { Course } from "@/models/course.model";
+import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase"; 
+import { Button } from "@/components/ui/button";
 
 
-const Course = () => {
+export default function Course() {
     const { id } = useParams();
-    const [course, setCourse] = useState<Course | null>(null);
+    const [course, setCourse] = useState<CourseProps | null>(null);
 
     useEffect(() => {
         const fetchCourse = async () => {
@@ -31,10 +32,12 @@ const Course = () => {
     };
 
     return (
-        <div>
+        <section className="page">
             <h2>{course.title}</h2>
-        </div>
+            <Button variant={"outline"}>
+                <Link to="/">Accueil</Link>
+            </Button>
+        </section>
     );
 };
 
-export default Course;

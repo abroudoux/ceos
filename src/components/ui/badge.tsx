@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-extralight transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
       variant: {
@@ -15,6 +15,18 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
+        green:
+          "bg-[#172F22] text-[#65E0AA] border-0",
+        purple:
+          "bg-[#202049] text-[#B2A9F9] border-0",
+        orange:
+          "bg-[#331E12] text-[#F49F55] border-0",
+        red:
+          "bg-[#3B1318] text-[#F29491] border-0",
+        pink:
+          "bg-[#361530] text-[#F08CCC] border-0",
+        blue:
+          "bg-[#0F3263] text-[#71B7F9] border-0",
       },
     },
     defaultVariants: {
@@ -23,9 +35,13 @@ const badgeVariants = cva(
   }
 )
 
+type CustomColor = "green" | "pink" | "red" | "purple" | "orange" | "blue";
+
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
+  VariantProps<typeof badgeVariants> {
+    variant?: CustomColor;
+  }
 
 function Badge({ className, variant, ...props }: BadgeProps) {
   return (

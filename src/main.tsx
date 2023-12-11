@@ -9,6 +9,7 @@ import Home from "@/pages/Home";
 import Profile from "@/pages/Profile";
 import Auth from "@/pages/Auth";
 import Courses from "@/pages/Courses";
+import Course from "@/pages/Course";
 import DesignSystem from "@/pages/DesignSystem";
 
 import Navbar from "@/components/Nav/Navbar";
@@ -30,7 +31,9 @@ const AppRoutes = () => {
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/courses" element={<Courses />}></Route>
+                <Route path="/courses" element={<Courses />}>
+                    {/* <Route path="/:id" element={<Course />}></Route> */}
+                </Route>
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
                 <Route path="/ui" element={<DesignSystem />}></Route> 

@@ -1,4 +1,5 @@
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
+import { useLocation } from "react-router-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
 
@@ -15,19 +16,33 @@ import Navbar from "@/components/Nav/Navbar";
 import "@/style/index.css";
 
 
+const rootContainer = document.getElementById("root");
+const root = createRoot(rootContainer!);
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement,).render(
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <BrowserRouter>
+const AppRoutes = () => {
+
+    const location = useLocation();
+
+    const showNavBar = ["/", "/courses", "/profile"];
+    const shouldShowNavBar = showNavBar.includes(location.pathname);
+
+    return (
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/courses" element={<Courses />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
-                <Route path="/ui" element={<DesignSystem />}></Route>
+                <Route path="/ui" element={<DesignSystem />}></Route> 
             </Routes>
-            <Navbar/>
+            {shouldShowNavBar && <Navbar />}
             <Toaster richColors />
-        </BrowserRouter>
-    </ThemeProvider>
+        </ThemeProvider>
+    );
+};
+
+root.render(
+    <BrowserRouter>
+        <AppRoutes />
+    </BrowserRouter>
 );

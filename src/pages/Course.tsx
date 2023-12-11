@@ -13,9 +13,6 @@ import { Badge } from "@/components/ui/badge";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 
-// import lists from "@/content/lists";
-
-
 
 export default function Course() {
     const { id } = useParams();
@@ -28,6 +25,7 @@ export default function Course() {
                 if (error) {
                     console.error('Error fetching course:', error.message);
                 } else {
+                    console.log(course?.content)
                     setCourse(data);
                 };
             } catch (error: any) {

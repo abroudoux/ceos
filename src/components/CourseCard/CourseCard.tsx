@@ -16,7 +16,7 @@ type CourseCardProps = {
 
 export const CourseCard : FC<CourseCardProps> = ( props ) => {
     return (
-        <li className="rounded-lg my-6 border-grey-light border-[1px] flex-row-center-between py-3 px-5 w-full">
+        <li className="rounded-lg my-2 border-grey-light border-[1px] flex-row-center-between py-2 px-5 w-full">
             <ul className="flex-col-center-between">
                 <Badge variant={"outline"} className="mb-3">{ props.topic }</Badge>
                 <li className="text-2xl font-normal mb-1">{ props.title }</li>

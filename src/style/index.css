@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -81,6 +80,10 @@ body::-webkit-scrollbar {
   @apply flex flex-row items-start justify-between;
 }
 
+.flex-col-start-center {
+  @apply flex flex-col items-start justify-center
+}
+
 .flex-row-center-between {
   @apply flex-row-center justify-between;
 }
@@ -93,8 +96,12 @@ body::-webkit-scrollbar {
   @apply flex-col-center justify-center;
 }
 
+.flex-row-center-start {
+  @apply flex-row-center justify-start;
+}
+
 .active {
-  @apply flex-row-center bg-primary text-white rounded-lg;
+  @apply flex-row-center bg-primary-foreground text-white rounded-lg;
 }
 
 .background-gradient {
@@ -102,6 +109,6 @@ body::-webkit-scrollbar {
 }
 
 .page {
-  @apply flex-col-center-center py-10;
+  @apply flex-col-start-center py-10 px-5;
 }
 

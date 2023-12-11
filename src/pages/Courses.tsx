@@ -1,5 +1,5 @@
 export default function Courses() {
     return (
-        <div>Courses</div>
+        <section className="page">Courses</section >
     );
 };

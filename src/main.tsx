@@ -8,6 +8,7 @@ import Home from "@/pages/Home";
 import Profile from "@/pages/Profile";
 import Auth from "@/pages/Auth";
 import Courses from "@/pages/Courses";
+import DesignSystem from "@/pages/DesignSystem";
 
 import Navbar from "@/components/Nav/Navbar";
 
@@ -23,6 +24,7 @@ const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement,
                 <Route path="/courses" element={<Courses />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
+                <Route path="/ui" element={<DesignSystem />}></Route>
             </Routes>
             <Navbar/>
             <Toaster richColors />

@@ -34,6 +34,7 @@ const AppRoutes = () => {
                 <Route path="/courses" element={<Courses />}>
                     {/* <Route path="/:id" element={<Course />}></Route> */}
                 </Route>
+                {/* <Route path="/courses/:id" element={<Course />} /> */}
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
                 <Route path="/ui" element={<DesignSystem />}></Route> 

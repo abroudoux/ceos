@@ -102,7 +102,7 @@ body::-webkit-scrollbar {
 }
 
 .active {
-  @apply flex-row-center bg-primary-foreground text-white rounded-lg;
+  @apply flex-row-center bg-primary-foreground rounded-lg;
 }
 
 .background-gradient {
@@ -110,6 +110,6 @@ body::-webkit-scrollbar {
 }
 
 .page {
-  @apply flex-col-start-center py-10 px-5;
+  @apply flex-col-start-center py-10 px-8;
 }
 

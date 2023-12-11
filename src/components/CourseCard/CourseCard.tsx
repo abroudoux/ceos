@@ -1,31 +1,32 @@
-import { FC } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faClock } from "@fortawesome/free-solid-svg-icons";
 
-import { Badge } from "@/components/ui/badge"
+import { CourseProps } from "@/models/course.model";
+import { getBadgeColor } from "@/lib/getBadgeColor";
+
+import { Badge } from "@/components/ui/badge";
 
 
-type CourseCardProps = {
-    topic : string;
-    title : string;
-    description ? : string;
-    level : string;
-    duration : string;
+interface CourseCardProps {
+    course: CourseProps;
 };
 
+export const CourseCard : React.FC<CourseCardProps> = ({ course }) => {
 
-export const CourseCard : FC<CourseCardProps> = ( props ) => {
+    const badgeColor = getBadgeColor(course.topic);
+
     return (
-        <li className="rounded-lg my-2 border-grey-light border-[1px] flex-row-center-between py-2 px-5 w-full">
+        <Link to={`/courses/${course.id}`} className="rounded-lg my-2 border-grey-light border-[1px] flex-row-center-between py-2 px-5 w-full" key={ course.id || 'defaultKey' }>
             <ul className="flex-col-center-between">
-                <Badge variant={"outline"} className="mb-3">{ props.topic }</Badge>
-                <li className="text-2xl font-normal mb-1">{ props.title }</li>
-                <li className="text-md font-light text-muted-foreground mb-4">{ props.description }</li>
+                <Badge variant={badgeColor} className="mb-3">{ course.topic }</Badge>
+                <li className="text-xl font-normal mb-1">{ course.title }</li>
+                <li className="text-base font-light text-muted-foreground mb-4">{ course.description }</li>
                 <ul className="flex-row-center-start gap-3">
-                    <li className="font-light text-base"><FontAwesomeIcon icon={faChartSimple} /> { props.level }</li>
-                    <li className="font-light text-base"><FontAwesomeIcon icon={faClock} /> { props.duration }</li>
+                    <li className="font-light text-xs"><FontAwesomeIcon icon={faChartSimple} /> { course.level }</li>
+                    <li className="font-light text-xs"><FontAwesomeIcon icon={faClock} /> { course.duration }min</li>
                 </ul>
             </ul>
-        </li>
+        </Link>
     );
 };

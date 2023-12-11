@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import ReactMarkdown from "react-markdown";
 
 import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
@@ -11,6 +12,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
+
+// import lists from "@/content/lists";
 
 
 
@@ -26,7 +29,7 @@ export default function Course() {
                     console.error('Error fetching course:', error.message);
                 } else {
                     setCourse(data);
-                }
+                };
             } catch (error: any) {
                 console.error('Error fetching course:', error.message);
             }
@@ -36,7 +39,7 @@ export default function Course() {
     }, [id]);
 
     if (!course) {
-        return <div>Loading...</div>;
+        return <div className="page">Loading...</div>;
     };
 
     const badgeColor = getBadgeColor(course.topic);
@@ -60,6 +63,7 @@ export default function Course() {
                 </ul>
                 <h1 className="text-3xl font-normal mb-2">{ course.title }</h1>
                 <p className="text-base font-light text-muted-foreground mb-4">{ course.description }</p>
+                <ReactMarkdown>{ course.content }</ReactMarkdown>
             </article>
             <div className="flex-row-center-center gap-4 mt-6">
                 <p>Cet article vous a-t'il été utile ?</p>

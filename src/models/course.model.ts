@@ -6,4 +6,5 @@ export type CourseProps = {
     level : string;
     duration : string;
     color : string;
+    content ? : string;
 };

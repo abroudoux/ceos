@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
-import { Course } from "@/models/course.model";
+import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
 import useStore from "@/lib/store";
 
@@ -10,7 +10,7 @@ import { CourseCard } from "@/components/CourseCard/CourseCard";
 
 export default function Home() {
 	const { isLoading, setIsLoading } = useStore();
-	const [courses, setCourses] = useState<Course[]>([]);
+	const [courses, setCourses] = useState<CourseProps[]>([]);
 	const sortedCourses = [...courses].sort((a, b) => b.id - a.id);
 	const latestCourse = sortedCourses[0];
 

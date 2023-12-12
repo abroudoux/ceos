@@ -64,10 +64,10 @@
 @layer base {
   * {
     @apply border-border;
-    font-family: fields, sans-serif;
+    font-family: "coolvetica", sans-serif;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground flex flex-col items-center justify-between;
   }
 }
 
@@ -97,6 +97,10 @@ body::-webkit-scrollbar {
   @apply flex flex-col items-start justify-center
 }
 
+.flex-col-start-between {
+  @apply flex flex-col items-start justify-between
+}
+
 .flex-row-center-between {
   @apply flex-row-center justify-between;
 }
@@ -114,7 +118,7 @@ body::-webkit-scrollbar {
 }
 
 .active {
-  @apply flex-row-center bg-primary-foreground rounded-lg;
+  @apply bg-primary-foreground;
 }
 
 .background-gradient {
@@ -122,6 +126,6 @@ body::-webkit-scrollbar {
 }
 
 .page {
-  @apply flex-col-start-center py-10 px-8;
+  @apply flex-col-start-between py-10 px-8 max-w-lg;
 }
 

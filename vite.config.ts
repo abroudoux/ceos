@@ -15,8 +15,8 @@ export default defineConfig({
         envCompatible(),
         svgrPlugin({
             svgrOptions: {
-            icon: true,
-        },
+                icon: true,
+            },
         }),
     ],
     resolve: {

@@ -7,6 +7,9 @@ import { supabase } from "@/lib/supabase";
 import useStore from "@/lib/store";
 
 import { CourseCard } from "@/components/CourseCard/CourseCard";
+import { DailyCourseCard } from "@/components/CourseCard/DailyCourseCard";
+import scium1 from "@/assets/img/scium3.png";
+import tä from "@/assets/img/tä.png";
 
 
 export default function Home() {
@@ -39,17 +42,29 @@ export default function Home() {
 
 	return (
 		<section className="page">
-			<Link to="/welcome/1">Welcome</Link>
+			{/* <Link to="/welcome/1">Welcome</Link> */}
 			<div className="mb-10">
-				<h1 className="text-3xl mb-3">L'astuce du jour</h1>
+				<div className="w-full flex-row-center-between">
+					<h1 className="text-3xl font-fields">L'astuce du jour</h1>
+					<img src={ scium1 } alt="Scium" className="w-16 h-auto scaleX(-1) -scale-x-100" />
+				</div>
 				{latestCourse && (
-					<CourseCard key={latestCourse.title} course={latestCourse} />
+					<DailyCourseCard key={latestCourse.title} course={latestCourse} />
 				)}
 			</div>
-			<h1 className="text-3xl mb-3">Recommandations</h1>
-			{courses.map((course) => (
-        		<CourseCard key={course.title} course={course} />
-      		))}
+			<div className="mb-10">
+				<div className="w-full flex-row-center-between">
+					<h1 className="text-3xl font-fields">Recommandations</h1>
+					<img src={ tä } alt="Tä" className="w-16 h-auto scaleX(-1) -scale-x-100" />
+				</div>
+				<ul>
+					{courses.map((course) => (
+						<li>
+							<CourseCard key={course.title} course={course} />
+						</li>
+					))}
+				</ul>
+			</div>
 		</section>
   	);
 };

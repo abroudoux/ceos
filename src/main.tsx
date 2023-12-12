@@ -11,6 +11,9 @@ import Auth from "@/pages/Auth";
 import Courses from "@/pages/Courses";
 import Course from "@/pages/Course";
 import DesignSystem from "@/pages/DesignSystem";
+import Welcome from "@/pages/Welcome";
+import Screen1 from "@/components/Screens/Screen1";
+import Screen2 from "@/components/Screens/Screen2";
 
 import Navbar from "@/components/Nav/Navbar";
 
@@ -30,7 +33,9 @@ const AppRoutes = () => {
             <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/courses" element={<Courses />}></Route>
-                <Route path="courses/:id" element={<Course />}></Route>
+                <Route path="/courses/:id" element={<Course />}></Route>
+                <Route path="/welcome/1" element={<Screen1 />}></Route>
+                <Route path="/welcome/2" element={<Screen2 />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
                 <Route path="/ui" element={<DesignSystem />}></Route> 

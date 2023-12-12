@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import bâ from "@/assets/img/bâ.png";
-
 import { variantsSlideLeft } from "@/lib/animations";
 
 import { Button } from "@/components/ui/button";
+
+import bâ from "@/assets/img/bâ.png";
 
 
 export default function Screen2() {
@@ -16,7 +16,7 @@ export default function Screen2() {
             </h1>
             <div className="w-full flex-row-center justify-end">
                 <div className="flex flex-col">
-                    <img src={ bâ } className="h-full w-36" />
+                    <img src={ bâ } alt="Bâ" className="h-full w-36" />
                     <p className="ml-12 font-fields font-bold text-4xl mt-2">Bâ</p>
                 </div>
             </div>

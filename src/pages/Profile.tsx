@@ -3,10 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faCheck, faPodcast } from "@fortawesome/free-solid-svg-icons";
 
 import { ModeToggle } from "@/components/ui/mode-toggle";
-
-
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-
 
 
 export default function Profile() {
@@ -22,24 +19,25 @@ export default function Profile() {
                 </Avatar>
                 <ModeToggle />
             </div>
-            <h1 className="text-3xl mb-5 font-fields">Hello, { username }</h1>
+            <h1 className="text-3xl mb-2 font-fields">Hello, { username }</h1>
+            <p className="text-md text-muted-foreground mb-5 font-light font-fields">Bienvenu sur votre profil, consultez votre activité</p>
             <div className="w-full h-auto flex-row-center gap-2 mb-2">
                 <Link to="/profile/favourites" className="w-48 h-48 bg-bg-pink rounded-2xl relative hover:cursor-pointer hover:rounded-3xl transition-all">
                     <FontAwesomeIcon icon={faHeart} className="text-pink text-5xl p-3 absolute top-0 right-0" />
-                    <p className="text-pink bottom-0 absolute p-3 text-3xl font-light font-coolvetica">
+                    <p className="text-pink bottom-0 absolute p-3 text-2xl font-rammetto">
                         Favoris
                     </p>
                 </Link>
                 <Link to="/profile/finished" className="w-48 h-48 bg-bg-green rounded-2xl relative hover:cursor-pointer hover:rounded-3xl transition-all">
                     <FontAwesomeIcon icon={faCheck} className="text-green text-5xl p-3 absolute top-0 right-0" />
-                    <p className="text-green bottom-0 absolute p-3 text-3xl font-light font-coolvetica">
+                    <p className="text-green bottom-0 absolute p-3 text-2xl font-rammetto">
                         Terminées
                     </p>
                 </Link>
             </div>
             <Link to="/podcasts" className="w-full h-48 bg-bg-blue rounded-2xl relative hover:cursor-pointer hover:rounded-3xl transition-all">
                 <FontAwesomeIcon icon={faPodcast} className="text-blue text-5xl p-3 absolute top-0 right-0" />
-                <p className="text-blue bottom-0 absolute p-3 text-3xl font-light font-coolvetica">
+                <p className="text-blue bottom-0 absolute p-3 text-2xl font-rammetto">
                     Podcasts
                 </p>
             </Link>

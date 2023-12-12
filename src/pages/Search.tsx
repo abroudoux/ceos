@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrig
 import { Label } from "@/components/ui/label";
 
 
-export default function Courses() {
+export default function Search() {
 	const { isLoading, setIsLoading } = useStore();
 	const [courses, setCourses] = useState<CourseProps[]>([]);
 	const [filteredCourses, setFilteredCourses] = useState<CourseProps[]>([]);

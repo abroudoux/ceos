@@ -46,7 +46,7 @@ export default function Home() {
 			<div className="mb-10">
 				<div className="w-full flex-row-center-between">
 					<h1 className="text-3xl font-fields">L'astuce du jour</h1>
-					<img src={ scium1 } alt="Image d'illustration Scium" className="w-16 h-auto scaleX(-1) -scale-x-100" />
+					<img src={ scium1 } alt="Scium" className="w-16 h-auto scaleX(-1) -scale-x-100" />
 				</div>
 				{latestCourse && (
 					<DailyCourseCard key={latestCourse.title} course={latestCourse} />
@@ -55,7 +55,7 @@ export default function Home() {
 			<div className="mb-10">
 				<div className="w-full flex-row-center-between">
 					<h1 className="text-3xl font-fields">Recommandations</h1>
-					<img src={ tä } alt="Image d'illustration Tä" className="w-16 h-auto scaleX(-1) -scale-x-100" />
+					<img src={ tä } alt="Tä" className="w-16 h-auto scaleX(-1) -scale-x-100" />
 				</div>
 				<ul>
 					{courses.map((course) => (

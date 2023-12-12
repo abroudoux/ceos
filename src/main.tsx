@@ -9,7 +9,7 @@ import { ThemeProvider } from "@/config/theme-provider";
 import Home from "@/pages/Home";
 import Profile from "@/pages/Profile";
 import Auth from "@/pages/Auth";
-import Courses from "@/pages/Courses";
+import Search from "@/pages/Search";
 import Course from "@/pages/Course";
 import Screen1 from "@/components/Screens/Screen1";
 import Screen2 from "@/components/Screens/Screen2";
@@ -28,24 +28,24 @@ const root = createRoot(rootContainer!);
 
 const AppRoutes = () => {
     const location = useLocation();
-    const showNavBar = ["/", "/courses", "/profile"];
+    const showNavBar = ["/", "/search", "/profile"];
     const shouldShowNavBar = showNavBar.includes(location.pathname);
 
-    const [showLoader, setShowLoader] = React.useState(true);
+    // const [showLoader, setShowLoader] = React.useState(true);
 
-    React.useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setShowLoader(false);
-        }, 3000);
+    // React.useEffect(() => {
+    //     const timeoutId = setTimeout(() => {
+    //         setShowLoader(false);
+    //     }, 3000);
 
-        return () => clearTimeout(timeoutId);
-    }, []);
+    //     return () => clearTimeout(timeoutId);
+    // }, []);
 
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/courses" element={<Courses />}></Route>
+                <Route path="/search" element={<Search />}></Route>
                 <Route path="/courses/:id" element={<Course />}></Route>
                 <Route path="/welcome/1" element={<Screen1 />}></Route>
                 <Route path="/welcome/2" element={<Screen2 />}></Route>
@@ -55,7 +55,7 @@ const AppRoutes = () => {
                 <Route path="/profile/finished" element={<FinishedLessons />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
             </Routes>
-            {showLoader && <Loader />}
+            {/* {showLoader && <Loader />} */}
             {shouldShowNavBar && <Navbar />}
             <Toaster richColors />
         </ThemeProvider>

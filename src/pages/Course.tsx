@@ -110,11 +110,11 @@ export default function Course() {
                 </RadioGroup>
             </div> */}
             <div className="mt-8 flex-row-center-center w-full gap-2">
-                <Button variant={"outline"} onClick={toggleFavorite} className="flex-row-center gap-2">
+                <Button variant={"outline"} onClick={toggleFavorite} className="flex-row-center" size="icon">
                     <FontAwesomeIcon icon={faHeart} style={{ color: isFavorite ? "red" : "gray" }} />
                     {/* {isFavorite ? " Retirer des favoris" : " Ajouter aux favoris"} */}
                 </Button>
-                <Button variant={"outline"} onClick={toggleFinish}>
+                <Button variant={"outline"} onClick={toggleFavorite}>
                     <Link to="/">Terminer</Link>
                 </Button>
             </div>

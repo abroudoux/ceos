@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
+import { Button } from "@/components/ui/button";
+
 import scium from "@/assets/img/scium2.png";
 
-import { Button } from "@/components/ui/button";
 
 
 export default function Screen1() {
@@ -17,7 +18,7 @@ export default function Screen1() {
             </h1>
             <div className="w-full flex-row-center justify-end">
                 <div className="flex flex-col">
-                    <img src={ scium } className="h-full w-52" />
+                    <img src={ scium } alt="Scium" className="h-full w-52" />
                     <p className="ml-4 font-fields font-bold text-5xl mt-3">Scium</p>
                 </div>
             </div>

@@ -16,7 +16,7 @@ export default function Screen2() {
             </h1>
             <div className="w-full flex-row-center justify-end">
                 <div className="flex flex-col">
-                    <img src={ tä } className="h-full w-52" />
+                    <img src={ tä } alt="Tä" className="h-full w-52" />
                     <p className="ml-20 font-fields font-bold text-4xl mt-3">Tä</p>
                 </div>
             </div>

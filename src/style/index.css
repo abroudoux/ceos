@@ -118,7 +118,7 @@ body::-webkit-scrollbar {
 }
 
 .active {
-  @apply flex-row-center bg-primary-foreground rounded-lg;
+  @apply bg-primary-foreground;
 }
 
 .background-gradient {

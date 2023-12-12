@@ -46,38 +46,38 @@ export default function AuthForm() {
         setIsLoading(true);
         await loading(2000);
 
-        // if (name.length <= 1) {
-        //     toast.error('Choose a username with 2 characters or more');
-        // } else if (email.length <= 1) {
-        //     toast.error('Choose an email with 2 characters or more');
-        // } else if (password.length <= 1) {
-        //     toast.error('Choose a password with 6 characters or more');
-        // } else {
-        //     try {
-        //         const response = await fetch(`${BASE_URL}/users`, {
-        //             method: 'POST',
-        //             headers: {
-        //                 'Content-Type': 'application/json',
-        //             },
-        //             body: JSON.stringify({ name, email, password }),
-        //           });
+        if (name.length <= 1) {
+            toast.error('Choose a username with 2 characters or more');
+        } else if (email.length <= 1) {
+            toast.error('Choose an email with 2 characters or more');
+        } else if (password.length <= 1) {
+            toast.error('Choose a password with 6 characters or more');
+        } else {
+            try {
+                const response = await fetch(`${BASE_URL}/users`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, password }),
+                  });
 
-        //         if (response.ok) {
-        //             navigate("/");
-        //             setUsername(name);
-        //             console.log(name, email, password)
-        //             signIn();
-        //         } else {
-        //             toast.error('Failed during registration');
-        //             throw new Error('Failed during registration');
-        //         };
+                if (response.ok) {
+                    navigate("/");
+                    setUsername(name);
+                    console.log(name, email, password)
+                    signIn();
+                } else {
+                    toast.error('Failed during registration');
+                    throw new Error('Failed during registration');
+                };
 
-        //     } catch (error: any) {
-        //         toast.error('Error during registration', error.message);
-        //     } finally {
-        //         setIsLoading(false);
-        //     };
-        // };
+            } catch (error: any) {
+                toast.error('Error during registration', error.message);
+            } finally {
+                setIsLoading(false);
+            };
+        };
 
         setIsLoading(false);
     };
@@ -134,7 +134,7 @@ export default function AuthForm() {
                 <TabsContent value="login">
                     <Card>
                         <CardHeader>
-                            <CardTitle>S'inscrire</CardTitle>
+                            <CardTitle>Se connecter</CardTitle>
                             <CardDescription>
                                 Accéder à votre espace
                             </CardDescription>

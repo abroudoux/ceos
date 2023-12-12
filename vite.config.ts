@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react";
 import svgrPlugin from "vite-plugin-svgr";
 import envCompatible from "vite-plugin-env-compatible";
 import path from "path";
-import mdx from "@mdx-js/rollup";
 
 
 export default defineConfig({
@@ -19,7 +18,6 @@ export default defineConfig({
                 icon: true,
             },
         }),
-        mdx(),
     ],
     resolve: {
         alias: {

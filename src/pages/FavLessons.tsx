@@ -39,7 +39,10 @@ export default function FavLessons() {
             <Link to="/profile">
                 <FontAwesomeIcon icon={faArrowLeft} />
             </Link>
-            <h1 className="text-5xl mb-4 mt-3 font-semibold font-rammetto">Leçons favorites</h1>
+            <div className="mb-6">
+                <h1 className="text-5xl mb-2 mt-3 font-semibold font-rammetto">Leçons favorites</h1>
+                <p className="text-lg font-coolvetica text-muted-foreground font-light">Retrouvez vos astuces préférées</p>
+            </div>
             {favoriteCourses.length === 0 ? (
                 <p className="text-lg font-light font-coolvetica">Aucune leçon favorite pour le moment.</p>
             ) : (

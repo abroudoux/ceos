@@ -21,10 +21,10 @@ export const DailyCourseCard : React.FC<CourseCardProps> = ({ course }) => {
             <ul className="flex-col-center-between">
                 <Badge variant={badgeColor} className="mb-3 font-fields">{ course.topic }</Badge>
                 <li className="text-xl font-normal mb-1 font-fields">{ course.title }</li>
-                <li className="text-lg font-extralight text-muted-foreground mb-4 font-coolvetica">{ course.description }</li>
-                <ul className="flex-row-center-start gap-3">
-                    <li className="font-light text-base"><FontAwesomeIcon icon={faChartSimple} /> { course.level }</li>
-                    <li className="font-light text-base"><FontAwesomeIcon icon={faClock} /> { course.duration }min</li>
+                <li className="text-md font-extralight text-muted-foreground mb-4 font-fields">{ course.description }</li>
+                <ul className="flex-row-center-start gap-3 font-light text-base">
+                    <li><FontAwesomeIcon icon={faChartSimple} /> { course.level }</li>
+                    <li><FontAwesomeIcon icon={faClock} /> { course.duration }min</li>
                 </ul>
             </ul>
         </Link>

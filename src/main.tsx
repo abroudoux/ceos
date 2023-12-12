@@ -18,7 +18,7 @@ import FavLessons from "./pages/FavLessons";
 import FinishedLessons from "./pages/FinishedLessons";
 
 import Navbar from "@/components/Nav/Navbar";
-import Loader from "@/components/Loader";
+import Loader from "@/components/Loader/Loader";
 
 import "@/style/index.css";
 
@@ -31,15 +31,15 @@ const AppRoutes = () => {
     const showNavBar = ["/", "/search", "/profile"];
     const shouldShowNavBar = showNavBar.includes(location.pathname);
 
-    // const [showLoader, setShowLoader] = React.useState(true);
+    const [showLoader, setShowLoader] = React.useState(true);
 
-    // React.useEffect(() => {
-    //     const timeoutId = setTimeout(() => {
-    //         setShowLoader(false);
-    //     }, 3000);
+    React.useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setShowLoader(false);
+        }, 3000);
 
-    //     return () => clearTimeout(timeoutId);
-    // }, []);
+        return () => clearTimeout(timeoutId);
+    }, []);
 
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -55,7 +55,7 @@ const AppRoutes = () => {
                 <Route path="/profile/finished" element={<FinishedLessons />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
             </Routes>
-            {/* {showLoader && <Loader />} */}
+            {showLoader && <Loader />}
             {shouldShowNavBar && <Navbar />}
             <Toaster richColors />
         </ThemeProvider>

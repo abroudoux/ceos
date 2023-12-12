@@ -41,19 +41,19 @@ export default function Home() {
 
 	return (
 		<section className="page">
-			{/* <Link to="/welcome/1">Welcome</Link> */}
+			<Link to="/welcome/1">Welcome</Link>
 			<div className="mb-10">
 				<div className="w-full flex-row-center-between">
-					<h1 className="text-3xl mb-3 font-fields">L'astuce du jour</h1>
-					<img src={ scium1 } alt="Image d'illustration Scium" className="w-12 h-auto scaleX(-1) -scale-x-100" />
+					<h1 className="text-3xl font-fields">L'astuce du jour</h1>
+					<img src={ scium1 } alt="Image d'illustration Scium" className="w-16 h-auto scaleX(-1) -scale-x-100" />
 				</div>
 				{latestCourse && (
 					<CourseCard key={latestCourse.title} course={latestCourse} />
 				)}
 			</div>
 			<div className="w-full flex-row-center-between">
-				<h1 className="text-3xl mb-3 font-fields">Recommandations</h1>
-				<img src={ tä } alt="Image d'illustration Tä" className="w-12 h-auto scaleX(-1) -scale-x-100" />
+				<h1 className="text-3xl font-fields">Recommandations</h1>
+				<img src={ tä } alt="Image d'illustration Tä" className="w-16 h-auto scaleX(-1) -scale-x-100" />
 			</div>
 			{courses.map((course) => (
         		<CourseCard key={course.title} course={course} />

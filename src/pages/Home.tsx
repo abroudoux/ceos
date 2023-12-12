@@ -7,6 +7,8 @@ import { supabase } from "@/lib/supabase";
 import useStore from "@/lib/store";
 
 import { CourseCard } from "@/components/CourseCard/CourseCard";
+import scium1 from "@/assets/scium3.png";
+import tä from "@/assets/tä.png";
 
 
 export default function Home() {
@@ -39,14 +41,20 @@ export default function Home() {
 
 	return (
 		<section className="page">
-			<Link to="/welcome/1">Welcome</Link>
+			{/* <Link to="/welcome/1">Welcome</Link> */}
 			<div className="mb-10">
-				<h1 className="text-3xl mb-3">L'astuce du jour</h1>
+				<div className="w-full flex-row-center-between">
+					<h1 className="text-3xl mb-3">L'astuce du jour</h1>
+					<img src={ scium1 } alt="Image d'illustration Scium" className="w-12 h-auto scaleX(-1) -scale-x-100" />
+				</div>
 				{latestCourse && (
 					<CourseCard key={latestCourse.title} course={latestCourse} />
 				)}
 			</div>
-			<h1 className="text-3xl mb-3">Recommandations</h1>
+			<div className="w-full flex-row-center-between">
+				<h1 className="text-3xl mb-3">Recommandations</h1>
+				<img src={ tä } alt="Image d'illustration Tä" className="w-12 h-auto scaleX(-1) -scale-x-100" />
+			</div>
 			{courses.map((course) => (
         		<CourseCard key={course.title} course={course} />
       		))}

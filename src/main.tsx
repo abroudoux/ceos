@@ -10,8 +10,6 @@ import Profile from "@/pages/Profile";
 import Auth from "@/pages/Auth";
 import Courses from "@/pages/Courses";
 import Course from "@/pages/Course";
-import DesignSystem from "@/pages/DesignSystem";
-import Welcome from "@/pages/Welcome";
 import Screen1 from "@/components/Screens/Screen1";
 import Screen2 from "@/components/Screens/Screen2";
 
@@ -38,7 +36,6 @@ const AppRoutes = () => {
                 <Route path="/welcome/2" element={<Screen2 />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
-                <Route path="/ui" element={<DesignSystem />}></Route> 
             </Routes>
             {shouldShowNavBar && <Navbar />}
             <Toaster richColors />

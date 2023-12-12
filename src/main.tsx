@@ -1,3 +1,4 @@
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { useLocation } from "react-router-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -17,6 +18,7 @@ import FavLessons from "./pages/FavLessons";
 import FinishedLessons from "./pages/FinishedLessons";
 
 import Navbar from "@/components/Nav/Navbar";
+import Loader from "@/components/Loader";
 
 import "@/style/index.css";
 
@@ -28,6 +30,16 @@ const AppRoutes = () => {
     const location = useLocation();
     const showNavBar = ["/", "/courses", "/profile"];
     const shouldShowNavBar = showNavBar.includes(location.pathname);
+
+    const [showLoader, setShowLoader] = React.useState(true);
+
+    React.useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setShowLoader(false);
+        }, 3000);
+
+        return () => clearTimeout(timeoutId);
+    }, []);
 
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -43,6 +55,7 @@ const AppRoutes = () => {
                 <Route path="/profile/finished" element={<FinishedLessons />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
             </Routes>
+            {showLoader && <Loader />}
             {shouldShowNavBar && <Navbar />}
             <Toaster richColors />
         </ThemeProvider>

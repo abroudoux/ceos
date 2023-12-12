@@ -12,6 +12,9 @@ import Courses from "@/pages/Courses";
 import Course from "@/pages/Course";
 import Screen1 from "@/components/Screens/Screen1";
 import Screen2 from "@/components/Screens/Screen2";
+import Screen3 from "@/components/Screens/Screen3";
+import FavLessons from "./pages/FavLessons";
+import FinishedLessons from "./pages/FinishedLessons";
 
 import Navbar from "@/components/Nav/Navbar";
 
@@ -34,7 +37,10 @@ const AppRoutes = () => {
                 <Route path="/courses/:id" element={<Course />}></Route>
                 <Route path="/welcome/1" element={<Screen1 />}></Route>
                 <Route path="/welcome/2" element={<Screen2 />}></Route>
+                <Route path="/welcome/3" element={<Screen3 />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
+                <Route path="/profile/favourites" element={<FavLessons />}></Route>
+                <Route path="/profile/finished" element={<FinishedLessons />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
             </Routes>
             {shouldShowNavBar && <Navbar />}

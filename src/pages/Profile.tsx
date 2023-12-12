@@ -30,7 +30,7 @@ export default function Profile() {
                         Favoris
                     </p>
                 </Link>
-                <Link to="/profile/lessons" className="w-48 h-48 bg-bg-green rounded-2xl relative hover:cursor-pointer hover:rounded-3xl transition-all">
+                <Link to="/profile/finished" className="w-48 h-48 bg-bg-green rounded-2xl relative hover:cursor-pointer hover:rounded-3xl transition-all">
                     <FontAwesomeIcon icon={faCheck} className="text-green text-5xl p-3 absolute top-0 right-0" />
                     <p className="text-green bottom-0 absolute p-3 text-3xl font-light font-coolvetica">
                         Terminées

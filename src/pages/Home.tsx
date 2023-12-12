@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 
 import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
@@ -38,6 +39,7 @@ export default function Home() {
 
 	return (
 		<section className="page">
+			<Link to="/welcome/1">Welcome</Link>
 			<div className="mb-10">
 				<h1 className="text-3xl mb-3">L'astuce du jour</h1>
 				{latestCourse && (

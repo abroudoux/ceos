@@ -24,6 +24,18 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
+    --bg-green: #172F22;
+    --green: #65E0AA;
+    --bg-purple: #202049;
+    --purple: #B2A9F9;
+    --bg-orange: #331E12;
+    --orange: #F49F55;
+    --bg-red: #3B1318;
+    --red: #F29491;
+    --bg-pink: #361530;
+    --pink: #F08CCC;
+    --bg-blue: #0F3263;
+    --blue: #71B7F9;
   }
  
   .dark {

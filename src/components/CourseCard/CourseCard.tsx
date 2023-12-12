@@ -17,14 +17,14 @@ export const CourseCard : React.FC<CourseCardProps> = ({ course }) => {
     const badgeColor = getBadgeColor(course.topic);
 
     return (
-        <Link to={`/courses/${course.id}`} className="rounded-lg my-2 border-grey-light border-[1px] flex-row-center-between py-2 px-5 w-full" key={ course.id || 'defaultKey' }>
+        <Link to={`/courses/${course.id}`} className="rounded-lg hover:rounded-2xl transition-all my-2 border-grey-light border-[1px] flex-row-center-between py-2 px-5 w-full" key={ course.id || 'defaultKey' }>
             <ul className="flex-col-center-between">
                 <Badge variant={badgeColor} className="mb-3">{ course.topic }</Badge>
-                <li className="text-xl font-normal mb-1">{ course.title }</li>
-                <li className="text-base font-light text-muted-foreground mb-4">{ course.description }</li>
+                <li className="text-xl font-normal mb-1 font-fields">{ course.title }</li>
+                <li className="text-lg font-light text-muted-foreground mb-4 font-fields">{ course.description }</li>
                 <ul className="flex-row-center-start gap-3">
-                    <li className="font-light text-xs"><FontAwesomeIcon icon={faChartSimple} /> { course.level }</li>
-                    <li className="font-light text-xs"><FontAwesomeIcon icon={faClock} /> { course.duration }min</li>
+                    <li className="font-light text-base"><FontAwesomeIcon icon={faChartSimple} /> { course.level }</li>
+                    <li className="font-light text-base"><FontAwesomeIcon icon={faClock} /> { course.duration }min</li>
                 </ul>
             </ul>
         </Link>

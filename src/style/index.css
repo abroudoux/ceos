@@ -64,10 +64,10 @@
 @layer base {
   * {
     @apply border-border;
-    font-family: fields, sans-serif;
+    font-family: "coolvetica", sans-serif;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground flex flex-col items-center justify-between;
   }
 }
 
@@ -122,6 +122,6 @@ body::-webkit-scrollbar {
 }
 
 .page {
-  @apply flex-col-start-center py-10 px-8;
+  @apply flex-col-start-center py-10 px-8 max-w-lg;
 }
 

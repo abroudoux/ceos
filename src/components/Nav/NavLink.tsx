@@ -15,7 +15,7 @@ const NavLinks : FC<NavLinkProps> = ( props ) => {
 
     return (
         <li className={`${location.pathname === props.path ? "active" : ""}`}>
-            <Link to={ props.path } className="px-12 py-3  flex-col-center-center gap-2">
+            <Link to={ props.path } className="px-12 py-3 flex-col-center-center gap-2">
                 <FontAwesomeIcon icon={ props.icon } className="text-xl" />
                 <p className="text-sm font-light">{ props.title }</p>
             </Link>

@@ -54,7 +54,7 @@ export default function Courses() {
 
 	return (
 		<section className="page">
-			<h1 className="text-3xl mb-3">Toutes les leçons</h1>
+			<h1 className="text-3xl mb-3 font-fields">Toutes les leçons</h1>
 			{/* <div className="flex-row-center">
                 <Label htmlFor="filter">Filtrer par :</Label>
                 <Select>

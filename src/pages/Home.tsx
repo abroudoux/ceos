@@ -44,7 +44,7 @@ export default function Home() {
 			{/* <Link to="/welcome/1">Welcome</Link> */}
 			<div className="mb-10">
 				<div className="w-full flex-row-center-between">
-					<h1 className="text-3xl mb-3">L'astuce du jour</h1>
+					<h1 className="text-3xl mb-3 font-fields">L'astuce du jour</h1>
 					<img src={ scium1 } alt="Image d'illustration Scium" className="w-12 h-auto scaleX(-1) -scale-x-100" />
 				</div>
 				{latestCourse && (
@@ -52,7 +52,7 @@ export default function Home() {
 				)}
 			</div>
 			<div className="w-full flex-row-center-between">
-				<h1 className="text-3xl mb-3">Recommandations</h1>
+				<h1 className="text-3xl mb-3 font-fields">Recommandations</h1>
 				<img src={ tä } alt="Image d'illustration Tä" className="w-12 h-auto scaleX(-1) -scale-x-100" />
 			</div>
 			{courses.map((course) => (

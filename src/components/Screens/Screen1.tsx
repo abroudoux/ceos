@@ -23,7 +23,7 @@ export default function Screen1() {
             </div>
             <div className="flex-row-center-center w-full">
                 <Link to="/welcome/2">
-                    <Button variant={"outline"}>
+                    <Button variant={"outline"} size={"lg"}>
                         Suivant
                     </Button>
                 </Link>

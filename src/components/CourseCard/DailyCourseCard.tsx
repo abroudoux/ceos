@@ -12,14 +12,14 @@ interface CourseCardProps {
     course: CourseProps;
 };
 
-export const CourseCard : React.FC<CourseCardProps> = ({ course }) => {
+export const DailyCourseCard : React.FC<CourseCardProps> = ({ course }) => {
 
     const badgeColor = getBadgeColor(course.topic);
 
     return (
         <Link to={`/courses/${course.id}`} className="rounded-lg hover:rounded-2xl transition-all my-2 border-grey-light border-[1px] flex-row-center-between py-2 px-5 w-full" key={ course.id || 'defaultKey' }>
             <ul className="flex-col-center-between">
-                <Badge variant={badgeColor} className="mb-3 font-coolvetica font-light">{ course.topic }</Badge>
+                <Badge variant={badgeColor} className="mb-3 font-fields">{ course.topic }</Badge>
                 <li className="text-xl font-normal mb-1 font-fields">{ course.title }</li>
                 <li className="text-lg font-extralight text-muted-foreground mb-4 font-coolvetica">{ course.description }</li>
                 <ul className="flex-row-center-start gap-3">

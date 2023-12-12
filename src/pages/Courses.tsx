@@ -54,27 +54,33 @@ export default function Courses() {
 
 	return (
 		<section className="page">
-			<h1 className="text-3xl mb-3 font-fields">Toutes les leçons</h1>
-			{/* <div className="flex-row-center">
-                <Label htmlFor="filter">Filtrer par :</Label>
-                <Select>
-                    <SelectTrigger>
-						<SelectValue placeholder="Tous" />
-					</SelectTrigger>
-					<SelectContent onChange={(e) => handleFilterChange((e.target as HTMLInputElement).value)} value={selectedFilter as SelectContentProps|| ""} as={SelectContentProps} >
-						<SelectGroup>
-							{filterOptions.map((option) => (
-								<SelectItem key={option} value={option}>
-									{option}
-								</SelectItem>
-							))}
-						</SelectGroup>
-					</SelectContent>
-                </Select>
-            </div> */}
-            {filteredCourses.map((course) => (
-                <CourseCard key={course.id} course={course} />
-            ))}
+			<div className="mb-10">
+				<h1 className="text-3xl mb-3 font-fields">Toutes les leçons</h1>
+				{/* <div className="flex-row-center">
+					<Label htmlFor="filter">Filtrer par :</Label>
+					<Select>
+						<SelectTrigger>
+							<SelectValue placeholder="Tous" />
+						</SelectTrigger>
+						<SelectContent onChange={(e) => handleFilterChange((e.target as HTMLInputElement).value)} value={selectedFilter as SelectContentProps|| ""} as={SelectContentProps} >
+							<SelectGroup>
+								{filterOptions.map((option) => (
+									<SelectItem key={option} value={option}>
+										{option}
+									</SelectItem>
+								))}
+							</SelectGroup>
+						</SelectContent>
+					</Select>
+				</div> */}
+				<ul>
+					{filteredCourses.map((course) => (
+						<li>
+							<CourseCard key={course.id} course={course} />
+						</li>
+					))}
+				</ul>
+			</div>
 		</section>
   	);
 };

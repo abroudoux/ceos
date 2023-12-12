@@ -21,7 +21,7 @@ export default function Screen2() {
                 </div>
             </div>
             <div className="flex-row-center-center w-full">
-                <Button variant={"outline"}>
+                <Button variant={"outline"} size={"lg"}>
                     <Link to="/auth">Commencer</Link>
                 </Button>
             </div>

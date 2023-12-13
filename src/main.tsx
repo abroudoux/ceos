@@ -11,14 +11,14 @@ import Profile from "@/pages/Profile";
 import Auth from "@/pages/Auth";
 import Search from "@/pages/Search";
 import Course from "@/pages/Course";
-import Screen1 from "@/components/Screens/Screen1";
-import Screen2 from "@/components/Screens/Screen2";
-import Screen3 from "@/components/Screens/Screen3";
-import FavLessons from "./pages/FavLessons";
-import FinishedLessons from "./pages/FinishedLessons";
+import FavLessons from "@/pages/FavLessons";
+import FinishedLessons from "@/pages/FinishedLessons";
 
 import Navbar from "@/components/Nav/Navbar";
 import Loader from "@/components/Loader/Loader";
+import Screen1 from "@/components/Screens/Screen1";
+import Screen2 from "@/components/Screens/Screen2";
+import Screen3 from "@/components/Screens/Screen3";
 
 import "@/style/index.css";
 

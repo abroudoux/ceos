@@ -10,7 +10,7 @@ export default function Profile() {
     const username = "Antonio";
 
     return (
-        <section className="page">
+        <section className="page w-full">
             <div className="w-full flex-row-center-between mb-10">
                 <Avatar>
                     <AvatarImage src="https://avatars.githubusercontent.com/u/115636685?v=4" />

@@ -43,7 +43,7 @@ export default function Home() {
 	return (
 		<section className="page">
 			{/* <Link to="/welcome/1">Welcome</Link> */}
-			<div className="mb-10">
+			<div className="mb-10 min-w-lg">
 				<div className="w-full flex-row-center-between">
 					<h1 className="text-3xl font-fields">L'astuce du jour</h1>
 					<img src={ scium1 } alt="Scium" className="w-16 h-auto scaleX(-1) -scale-x-100" />

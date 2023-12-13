@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import { toast } from "sonner";
 
 import useStore from "@/lib/store";
@@ -16,7 +16,7 @@ import { Icons } from "@/components/ui/icons";
 
 export default function AuthForm() {
 
-    const { token, username, signIn, setUsername } = useStore();
+    const { token, signIn, setUsername } = useStore();
     const navigate = useNavigate();
 
     const [signupData, setSignupData] = useState({
@@ -35,9 +35,9 @@ export default function AuthForm() {
     };
 
     const signUpNewUser = async () => {
+
         try {
             const { data, error } = await supabase.auth.signUp({
-                // name: signupData.name,
                 email: signupData.email,
                 password: signupData.password,
             });
@@ -47,7 +47,7 @@ export default function AuthForm() {
                 toast.error("Error signing up");
             } else {
                 console.log("Sign up successful:", data);
-                setUsername(signupData.email);
+                setUsername(signupData.name);
                 signIn();
                 navigate("/");
             };
@@ -81,6 +81,11 @@ export default function AuthForm() {
             toast.error("Error signing up");
         };
     };
+
+    if (token) {
+        return <Navigate to="/" />;
+    };
+
 
     return (
         <Tabs defaultValue="signin" className="w-[400px]">

@@ -62,11 +62,11 @@ export default function Search() {
 	return (
 		<section className="page">
 			<div className="mb-10">
-				<h1 className="text-3xl mb-4 font-fields">Toutes les leçons</h1>
+				<h1 className="text-4xl mb-4 font-fields">Toutes les leçons</h1>
 				<div>
-					<Label htmlFor="filter" className="text-lg font-light font-fields">Filtrer par :</Label>
+					<Label htmlFor="filter" className="text-lg font-light font-fields">Topic :</Label>
 					<select id="filter" onChange={(e) => handleFilterChange(e)} value={selectedFilter || ""} className="ml-2 border-[1px] border-white font-light font-fields py-2 px-3 rounded-lg mb-3" >
-						<option value="">tous</option>
+						<option value="">tout</option>
 						{filterOptions.map((option) => (
 							<option key={option} value={option}>
 								{option}

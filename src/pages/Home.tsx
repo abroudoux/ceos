@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 
 
 export default function Home() {
-	const { token, isLoading, setIsLoading, signOut } = useStore();
+	const { token, username, isLoading, setIsLoading, signOut } = useStore();
 	const [courses, setCourses] = useState<CourseProps[]>([]);
 	const sortedCourses = [...courses].sort((a, b) => b.id - a.id);
 	const latestCourse = sortedCourses[0];
@@ -54,10 +54,11 @@ export default function Home() {
 	return (
 		<section className="page">
 			{/* <Link to="/welcome/1">Welcome</Link> */}
-			<Button onClick={signOutSession} variant={"outline"}>Sign Out</Button>
+			{/* <Button onClick={signOutSession} variant={"outline"}>Sign Out</Button> */}
+			<h1 className="text-xl font-light mb-4 font-fields">Hello, { username }</h1>
 			<div className="mb-10 min-w-lg">
 				<div className="w-full flex-row-center-between">
-					<h1 className="text-3xl font-fields">L'astuce du jour</h1>
+					<h1 className="text-4xl font-fields">L'astuce du jour</h1>
 					<img src={ scium1 } alt="Scium" className="w-16 h-auto scaleX(-1) -scale-x-100" />
 				</div>
 				{latestCourse && (
@@ -66,7 +67,7 @@ export default function Home() {
 			</div>
 			<div className="mb-10">
 				<div className="w-full flex-row-center-between">
-					<h1 className="text-3xl font-fields">Recommandations</h1>
+					<h1 className="text-4xl font-fields">Recommandations</h1>
 					<img src={ tä } alt="Tä" className="w-16 h-auto scaleX(-1) -scale-x-100" />
 				</div>
 				<ul>

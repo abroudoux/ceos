@@ -10,7 +10,7 @@ import bâ from "@/assets/img/bâ.png";
 
 export default function Screen2() {
     return (
-        <motion.div className="w-full h-full absolute left-0 py-8 px-6 flex-col-center justify-between bg-bg-orange" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
+        <motion.div className="w-full h-full absolute left-0 py-8 px-6 flex-col-center justify-between bg-bg-orange max-w-lg" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
             <h1 className="text-7xl font-rammetto text-orange">
                 Chaque problème a sa solution
             </h1>

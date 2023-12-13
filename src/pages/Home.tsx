@@ -10,6 +10,7 @@ import { CourseCard } from "@/components/CourseCard/CourseCard";
 import { DailyCourseCard } from "@/components/CourseCard/DailyCourseCard";
 import scium1 from "@/assets/img/scium3.png";
 import tä from "@/assets/img/tä.png";
+import logo from "@/assets/img/logo.png";
 
 
 export default function Home() {
@@ -47,7 +48,7 @@ export default function Home() {
 	return (
 		<section className="page">
 			{/* <Link to="/welcome/1">Welcome</Link> */}
-			<h1 className="text-xl font-light mb-4 font-fields">Hello, { username }</h1>
+			<p className="text-xl font-light mb-4 font-fields">Hello, <span className="font-normal">{ username }!</span></p>
 			<div className="mb-10 min-w-lg">
 				<div className="w-full flex-row-center-between">
 					<h1 className="text-4xl font-fields">L'astuce du jour</h1>

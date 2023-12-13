@@ -8,6 +8,7 @@ export default function Loader() {
                 <source src={ loader } type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
+            <p className="text-5xl font-fields font-normal">Chargement..</p>
         </div>
     );
 };

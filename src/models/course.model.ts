@@ -7,4 +7,5 @@ export type CourseProps = {
     duration : string;
     color : string;
     content ? : string;
+    created_at ? : string;
 };

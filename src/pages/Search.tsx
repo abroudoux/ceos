@@ -38,15 +38,17 @@ export default function Search() {
 		setIsLoading(false);
 	};
 
-	const handleFilterChange = (filter: string | null) => {
-		setSelectedFilter(filter);
-		if (filter) {
-		  const filtered = courses.filter((course) => course.topic === filter);
-		  setFilteredCourses(filtered);
-		} else {
-		  setFilteredCourses(courses);
-		}
-	};
+    const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const filter = e.target.value;
+        setSelectedFilter(filter);
+
+        if (filter) {
+            const filtered = courses.filter((course) => course.topic === filter);
+            setFilteredCourses(filtered);
+        } else {
+            setFilteredCourses(courses);
+        };
+    };
 
 	if (isLoading) {
 		return <div className="page">Chargement..</div>
@@ -55,24 +57,18 @@ export default function Search() {
 	return (
 		<section className="page">
 			<div className="mb-10">
-				<h1 className="text-3xl mb-3 font-fields">Toutes les leçons</h1>
-				{/* <div className="flex-row-center">
-					<Label htmlFor="filter">Filtrer par :</Label>
-					<Select>
-						<SelectTrigger>
-							<SelectValue placeholder="Tous" />
-						</SelectTrigger>
-						<SelectContent onChange={(e) => handleFilterChange((e.target as HTMLInputElement).value)} value={selectedFilter as SelectContentProps|| ""} as={SelectContentProps} >
-							<SelectGroup>
-								{filterOptions.map((option) => (
-									<SelectItem key={option} value={option}>
-										{option}
-									</SelectItem>
-								))}
-							</SelectGroup>
-						</SelectContent>
-					</Select>
-				</div> */}
+				<h1 className="text-3xl mb-4 font-fields">Toutes les leçons</h1>
+				<div>
+					<Label htmlFor="filter" className="text-lg font-light font-fields">Filtrer par :</Label>
+					<select id="filter" onChange={(e) => handleFilterChange(e)} value={selectedFilter || ""} className="ml-2 border-[1px] border-white font-light font-fields py-2 px-3 rounded-lg mb-3" >
+						<option value="">tous</option>
+						{filterOptions.map((option) => (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</select>
+            	</div>
 				<ul>
 					{filteredCourses.map((course) => (
 						<li>

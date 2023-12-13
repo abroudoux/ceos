@@ -12,8 +12,6 @@ import useStore from "@/lib/store";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
 
 
 export default function Course() {
@@ -58,7 +56,7 @@ export default function Course() {
         setIsFavorite(!isFavorite);
     };
 
-    const toggleFinish = () => {
+    const toggleFinished = () => {
         const finished = JSON.parse(localStorage.getItem("finished") || "[]");
         const index = finished.indexOf(course?.id || "");
 
@@ -103,25 +101,11 @@ export default function Course() {
                 <p className="text-lg font-light text-muted-foreground mb-4">{ course.description }</p>
                 <ReactMarkdown>{ course.content }</ReactMarkdown>
             </article>
-            {/* <div className="flex-row-center-center gap-4 mt-6">
-                <p>Cet article vous a-t'il été utile ?</p>
-                <RadioGroup defaultValue="oui" className="flex-row-center-center">
-                    <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="oui" id="r1" />
-                        <Label htmlFor="r1">Oui</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="non" id="r2" />
-                        <Label htmlFor="r2">Non</Label>
-                    </div>
-                </RadioGroup>
-            </div> */}
             <div className="mt-8 flex-row-center-center w-full gap-2">
                 <Button variant={"outline"} onClick={toggleFavorite} className="flex-row-center" size="icon">
                     <FontAwesomeIcon icon={faHeart} style={{ color: isFavorite ? "red" : "gray" }} />
-                    {/* {isFavorite ? " Retirer des favoris" : " Ajouter aux favoris"} */}
                 </Button>
-                <Button variant={"outline"} onClick={toggleFavorite}>
+                <Button variant={"outline"} onClick={toggleFinished}>
                     <Link to="/">Terminer</Link>
                 </Button>
             </div>

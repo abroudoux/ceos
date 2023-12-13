@@ -38,7 +38,7 @@ export default function FavLessons() {
     }, []);
 
     if (!token) {
-        return <Navigate to="/welcome/1" />;
+        return <Navigate to="/welcome" />;
     };
 
     return (

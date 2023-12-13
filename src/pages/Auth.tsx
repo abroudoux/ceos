@@ -1,12 +1,20 @@
 import { motion } from "framer-motion";
+import { Navigate } from "react-router-dom";
 
 import { variantsSlideLeft } from "@/lib/animations";
+import useStore from "@/lib/store";
 
 import AuthForm from "@/components/AuthForm/AuthForm";
-import scium from "@/assets/img/scium2.png";
 
 
 export default function Auth() {
+
+    const { token } = useStore();
+
+    if (token) {
+        return <Navigate to="/" />;
+    };
+
     return (
         <motion.section className="page" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
             <div className="mb-8">
@@ -14,9 +22,6 @@ export default function Auth() {
                 <p className="text-lg font-coolvetica text-muted-foreground font-light">Créez un compte ou connectez vous pour commencer à utiliser l'aplication</p>
             </div>
             <AuthForm />
-            {/* <div className="w-full h-auto flex-row-center-center mt-12">
-                <img src={ scium } alt="Scium" className="h-full w-52" />
-            </div> */}
         </motion.section>
     );
 };

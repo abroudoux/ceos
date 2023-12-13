@@ -23,7 +23,7 @@ export default function Profile() {
     }, [username]);
 
     if (!token) {
-        return <Navigate to="/welcome/1" />;
+        return <Navigate to="/welcome" />;
     };
 
     async function signOutSession() {

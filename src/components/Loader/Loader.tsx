@@ -4,11 +4,11 @@ import logo from "@/assets/img/logo.png";
 
 export default function Loader() {
     return (
-        <div className="w-full h-full flex flex-col items-center justify-between absolute top-0 left-0 bg-black z-50">
+        <div className="w-full h-screen flex flex-col items-center justify-between absolute top-0 left-0 bg-black z-50">
             <div className="mt-8">
                 <img src={ logo } alt="logo" className="h-full w-24" />
             </div>
-            <video autoPlay loop muted style={{ maxWidth: "100%", maxHeight: "100%" }}>
+            <video autoPlay loop muted className="h-auto w-80">
                 <source src={ loader } type="video/mp4" />
                 Your browser does not support the video tag.
             </video>

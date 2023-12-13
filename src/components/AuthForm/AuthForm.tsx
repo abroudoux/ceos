@@ -1,9 +1,8 @@
-import React, { ChangeEvent, useState } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
+import { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 import useStore from "@/lib/store";
-import loading from "@/lib/loading";
 import { supabase } from "@/lib/supabase";
 
 import { Button } from "@/components/ui/button";
@@ -16,7 +15,7 @@ import { Icons } from "@/components/ui/icons";
 
 export default function AuthForm() {
 
-    const { token, signIn, setUsername } = useStore();
+    const { isLoading, signIn, setUsername, setIsLoading } = useStore();
     const navigate = useNavigate();
 
     const [signupData, setSignupData] = useState({
@@ -35,6 +34,8 @@ export default function AuthForm() {
     };
 
     const signUpNewUser = async () => {
+
+        setIsLoading(true);
 
         try {
             const { data, error } = await supabase.auth.signUp({
@@ -55,7 +56,9 @@ export default function AuthForm() {
         } catch (error: any) {
             console.error("Error signing up:", error.message);
             toast.error("Error signing up");
-        }
+        } finally {
+            setIsLoading(false);
+        };
     };
 
     const handleSigninChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -80,10 +83,6 @@ export default function AuthForm() {
             console.error("Error signing up:", error.message);
             toast.error("Error signing up");
         };
-    };
-
-    if (token) {
-        return <Navigate to="/" />;
     };
 
 
@@ -118,9 +117,9 @@ export default function AuthForm() {
                         </CardContent>
                         <CardFooter>
                             <Button variant={"outline"}>
-                                {/* {isLoading && (
+                                {isLoading && (
                                     <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-                                )} */}
+                                )}
                                 Créer
                             </Button>
                         </CardFooter>
@@ -148,9 +147,9 @@ export default function AuthForm() {
                         </CardContent>
                         <CardFooter>
                             <Button variant={"outline"}>
-                                {/* {isLoading && (
+                                {isLoading && (
                                     <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-                                )} */}
+                                )}
                                 Se Connecter
                             </Button>
                         </CardFooter>

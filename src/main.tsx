@@ -1,14 +1,16 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
 
 import { ThemeProvider } from "@/config/theme-provider";
+import useStore from "@/lib/store";
 
 import Home from "@/pages/Home";
 import Profile from "@/pages/Profile";
 import Auth from "@/pages/Auth";
+import Supabase from "@/pages/Supabase";
 import Search from "@/pages/Search";
 import Course from "@/pages/Course";
 import FavLessons from "@/pages/FavLessons";
@@ -30,6 +32,7 @@ const AppRoutes = () => {
     const location = useLocation();
     const showNavBar = ["/", "/search", "/profile"];
     const shouldShowNavBar = showNavBar.includes(location.pathname);
+    const { token } = useStore();
 
     // const [showLoader, setShowLoader] = React.useState(true);
 
@@ -40,6 +43,10 @@ const AppRoutes = () => {
 
     //     return () => clearTimeout(timeoutId);
     // }, []);
+
+    // if (!token) {
+    //     return <Navigate to="/welcome/1" />;
+    // }
 
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -54,6 +61,7 @@ const AppRoutes = () => {
                 <Route path="/profile/favourites" element={<FavLessons />}></Route>
                 <Route path="/profile/finished" element={<FinishedLessons />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
+                <Route path="/supabase" element={<Supabase />}></Route>
             </Routes>
             {/* {showLoader && <Loader />} */}
             {shouldShowNavBar && <Navbar />}

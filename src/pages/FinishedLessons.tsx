@@ -2,15 +2,18 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { Navigate } from "react-router-dom";
 
 import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
+import useStore from "@/lib/store";
 
 import { CourseCard } from "@/components/CourseCard/CourseCard";
 import { Button } from "@/components/ui/button";
 
 
 export default function FinishedLessons() {
+    const { token } = useStore();
     const [finishedCourses, setFinishedCourses] = useState<CourseProps[]>([]);
 
     useEffect(() => {
@@ -33,6 +36,10 @@ export default function FinishedLessons() {
 
         fetchFinishedCourses();
     }, []);
+
+    if (!token) {
+        return <Navigate to="/welcome/1" />;
+    };
 
     return (
         <section className="page">

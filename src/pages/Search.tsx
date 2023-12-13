@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
+import { Navigate } from "react-router-dom";
 
 import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
@@ -12,7 +13,7 @@ import { Label } from "@/components/ui/label";
 
 
 export default function Search() {
-	const { isLoading, setIsLoading } = useStore();
+	const { token, isLoading, setIsLoading } = useStore();
 	const [courses, setCourses] = useState<CourseProps[]>([]);
 	const [filteredCourses, setFilteredCourses] = useState<CourseProps[]>([]);
     const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
@@ -53,6 +54,10 @@ export default function Search() {
 	if (isLoading) {
 		return <div className="page">Chargement..</div>
 	};
+
+	if (!token) {
+        return <Navigate to="/welcome/1" />;
+    };
 
 	return (
 		<section className="page">

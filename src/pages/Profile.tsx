@@ -1,13 +1,22 @@
+import React, { useEffect, useState } from "react";
 import { faHeart, faCheck, faPodcast } from "@fortawesome/free-solid-svg-icons";
+import { Navigate } from "react-router-dom";
 
+import useStore from "@/lib/store";
+import { supabase } from "@/lib/supabase";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import ColorCard from "@/components/ColorCard/ColorCard";
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 
+
 export default function Profile() {
 
-    const username = "Antonio";
+    const { token, username } = useStore();
+
+    if (!token) {
+        return <Navigate to="/welcome/1" />;
+    };
 
     return (
         <section className="page w-full">

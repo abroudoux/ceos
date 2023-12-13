@@ -4,6 +4,7 @@ import { toast } from "sonner";
 
 import useStore from "@/lib/store";
 import loading from "@/lib/loading";
+import { supabase } from "@/lib/supabase";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
@@ -16,80 +17,69 @@ import { Icons } from "@/components/ui/icons";
 export default function AuthForm() {
 
     const { token, username, signIn, setUsername } = useStore();
-
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
     const navigate = useNavigate();
 
-    const [isLoading, setIsLoading] = React.useState<boolean>(false);
+    const [signupData, setSignupData] = useState({
+        name: "",
+        email: "",
+        password: "",
+    });
 
-    const handleChange = (e : ChangeEvent<HTMLInputElement>) => {
-		switch (e.target.id) {
-			case 'name':
-				setName(e.target.value);
-			    break;
-			case 'email':
-				setEmail(e.target.value);
-			    break;
-            case 'password':
-                setPassword(e.target.value);
-                break;
-			default:
-			    break;
-		};
-	};
+    const [signinData, setSigninData] = useState({
+        email: "",
+        password: "",
+    });
 
-    const createUser = async () => {
-
-        setIsLoading(true);
-        await loading(2000);
-
-        if (name.length <= 1) {
-            toast.error('Choose a username with 2 characters or more');
-        } else if (email.length <= 1) {
-            toast.error('Choose an email with 2 characters or more');
-        } else if (password.length <= 1) {
-            toast.error('Choose a password with 6 characters or more');
-        } else {
-            try {
-                const response = await fetch(`${BASE_URL}/users`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ name, email, password }),
-                  });
-
-                if (response.ok) {
-                    navigate("/");
-                    setUsername(name);
-                    console.log(name, email, password)
-                    signIn();
-                } else {
-                    toast.error('Failed during registration');
-                    throw new Error('Failed during registration');
-                };
-
-            } catch (error: any) {
-                toast.error('Error during registration', error.message);
-            } finally {
-                setIsLoading(false);
-            };
-        };
-
-        setIsLoading(false);
+    const handleSignupChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSignupData({...signupData, [e.target.id]: e.target.value});
     };
 
-    async function login(event: React.SyntheticEvent) {
-        event.preventDefault();
-        setIsLoading(true);
+    const signUpNewUser = async () => {
+        try {
+            const { data, error } = await supabase.auth.signUp({
+                // name: signupData.name,
+                email: signupData.email,
+                password: signupData.password,
+            });
 
-        setTimeout(() => {
-            setIsLoading(false);
-            navigate("/");
-        }, 2000)
+            if (error) {
+                console.error("Error signing up:", error);
+                toast.error("Error signing up");
+            } else {
+                console.log("Sign up successful:", data);
+                setUsername(signupData.email);
+                signIn();
+                navigate("/");
+            };
+
+        } catch (error: any) {
+            console.error("Error signing up:", error.message);
+            toast.error("Error signing up");
+        }
+    };
+
+    const handleSigninChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSigninData({...signinData, [e.target.id]: e.target.value});
+    };
+
+    const signInExistingUser = async () => {
+        try {
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: signinData.email,
+                password: signinData.password,
+            });
+
+            if (error) {
+                console.error("Error signing up:", error);
+                toast.error("Error signing up");
+            } else {
+                console.log("Sign up successful:", data);
+                navigate("/");
+            };
+        } catch (error: any) {
+            console.error("Error signing up:", error.message);
+            toast.error("Error signing up");
+        };
     };
 
     return (
@@ -98,6 +88,7 @@ export default function AuthForm() {
                 <TabsTrigger value="signin">Inscription</TabsTrigger>
                 <TabsTrigger value="login">Connexion</TabsTrigger>
             </TabsList>
+            <form onSubmit={(e) => {e.preventDefault(); signUpNewUser();}}>
                 <TabsContent value="signin">
                     <Card>
                         <CardHeader>
@@ -109,28 +100,29 @@ export default function AuthForm() {
                         <CardContent className="space-y-2">
                             <div className="space-y-1">
                                 <Label htmlFor="name">Nom</Label>
-                                <Input autoComplete="off" id="name" type="text" value={name} placeholder="Votre nom" onChange={handleChange} />
+                                <Input autoComplete="off" id="name" type="text" placeholder="Votre nom" value={signupData.name} onChange={handleSignupChange} />
                             </div>
                             <div className="space-y-1">
                                 <Label htmlFor="email">Email</Label>
-                                <Input autoComplete="off" id="email" type="email" value={email} placeholder="Votre email" onChange={handleChange} />
+                                <Input autoComplete="off" id="email" type="email" placeholder="Votre email" value={signupData.email} onChange={handleSignupChange} />
                             </div>
                             <div className="space-y-1">
                                 <Label htmlFor="password">Mot de passe</Label>
-                                <Input id="password" type="password" value={password} placeholder="Créez un mot de passe" onChange={handleChange} />
+                                <Input id="password" type="password" placeholder="Créez un mot de passe" value={signupData.password} onChange={handleSignupChange} />
                             </div>
                         </CardContent>
                         <CardFooter>
-                            <Button disabled={isLoading} onClick={createUser} variant={"outline"}>
-                                {isLoading && (
+                            <Button variant={"outline"}>
+                                {/* {isLoading && (
                                     <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-                                )}
+                                )} */}
                                 Créer
                             </Button>
                         </CardFooter>
                     </Card>
                 </TabsContent>
-            <form onSubmit={login}>
+            </form>
+            <form onSubmit={(e) => {e.preventDefault(); signInExistingUser();}}>
                 <TabsContent value="login">
                     <Card>
                         <CardHeader>
@@ -142,18 +134,18 @@ export default function AuthForm() {
                         <CardContent className="space-y-2">
                             <div className="space-y-1">
                                 <Label htmlFor="email">Email</Label>
-                                <Input id="email" type="email" placeholder="Votre email" />
+                                <Input id="email" type="email" placeholder="Votre email" value={signinData.email} onChange={handleSigninChange} />
                             </div>
                             <div className="space-y-1">
                                 <Label htmlFor="password">Mot de passe</Label>
-                                <Input id="password" type="password" placeholder="Saisissez votre mot de passe" />
+                                <Input id="password" type="password" placeholder="Saisissez votre mot de passe" value={signinData.password} onChange={handleSigninChange} />
                             </div>
                         </CardContent>
                         <CardFooter>
-                            <Button disabled={isLoading} variant={"outline"}>
-                                {isLoading && (
+                            <Button variant={"outline"}>
+                                {/* {isLoading && (
                                     <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-                                )}
+                                )} */}
                                 Se Connecter
                             </Button>
                         </CardFooter>

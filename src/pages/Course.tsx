@@ -3,10 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faHeart } from "@fortawesome/free-solid-svg-icons";
 import ReactMarkdown from "react-markdown";
+import { Navigate } from "react-router-dom";
 
 import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
 import { getBadgeColor } from "@/lib/getBadgeColor";
+import useStore from "@/lib/store";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +17,7 @@ import { Label } from "@/components/ui/label";
 
 
 export default function Course() {
+    const { token } = useStore();
     const { id } = useParams();
     const [course, setCourse] = useState<CourseProps | null>(null);
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
@@ -71,6 +74,10 @@ export default function Course() {
 
     if (!course) {
         return <div className="page">Loading...</div>;
+    };
+
+    if (!token) {
+        return <Navigate to="/welcome/1" />;
     };
 
     const badgeColor = getBadgeColor(course.topic);

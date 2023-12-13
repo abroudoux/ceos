@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { faHeart, faCheck, faPodcast } from "@fortawesome/free-solid-svg-icons";
 import { Navigate } from "react-router-dom";
 
@@ -6,13 +6,14 @@ import useStore from "@/lib/store";
 import { supabase } from "@/lib/supabase";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import ColorCard from "@/components/ColorCard/ColorCard";
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 
 
 
 export default function Profile() {
 
-    const { token, username } = useStore();
+    const { token, username, signOut } = useStore();
     const [firstLetterUsername, setFirstLetterUsername] = useState('');
 
     useEffect(() => {
@@ -25,14 +26,21 @@ export default function Profile() {
         return <Navigate to="/welcome/1" />;
     };
 
+    async function signOutSession() {
+		const { error } = await supabase.auth.signOut();
+		signOut();
+	};
+
     return (
         <section className="page w-full">
             <div className="w-full flex-row-center-between mb-10">
                 <Avatar>
-                    {/* <AvatarImage src="https://avatars.githubusercontent.com/u/115636685?v=4" /> */}
                     <AvatarFallback>{ firstLetterUsername }</AvatarFallback>
                 </Avatar>
-                <ModeToggle />
+                <div className="flex-row-center-center gap-2">
+                    <ModeToggle />
+                    <Button onClick={signOutSession} variant={"secondary"} className="font-normal">Déconnexion</Button>
+                </div>
             </div>
             <h1 className="text-4xl mb-2 font-fields">Hello, { username }</h1>
             <p className="text-md text-muted-foreground mb-5 font-light font-fields">Bienvenu sur votre profil, consultez votre activité</p>

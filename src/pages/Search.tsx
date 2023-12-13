@@ -5,10 +5,8 @@ import { Navigate } from "react-router-dom";
 import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
 import useStore from "@/lib/store";
-import { SelectContentProps } from "@/models/select-content-props";
 
 import { CourseCard } from "@/components/CourseCard/CourseCard";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label";
 
 

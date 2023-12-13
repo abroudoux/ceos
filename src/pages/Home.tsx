@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
-import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 import { CourseProps } from "@/models/course.model";
@@ -11,7 +10,6 @@ import { CourseCard } from "@/components/CourseCard/CourseCard";
 import { DailyCourseCard } from "@/components/CourseCard/DailyCourseCard";
 import scium1 from "@/assets/img/scium3.png";
 import tä from "@/assets/img/tä.png";
-import { Button } from "@/components/ui/button";
 
 
 export default function Home() {
@@ -42,11 +40,6 @@ export default function Home() {
 		return <div className="page">Chargement..</div>
 	};
 
-	async function signOutSession() {
-		const { error } = await supabase.auth.signOut();
-		signOut();
-	};
-
 	if (!token) {
         return <Navigate to="/welcome/1" />;
     };
@@ -54,7 +47,6 @@ export default function Home() {
 	return (
 		<section className="page">
 			{/* <Link to="/welcome/1">Welcome</Link> */}
-			{/* <Button onClick={signOutSession} variant={"outline"}>Sign Out</Button> */}
 			<h1 className="text-xl font-light mb-4 font-fields">Hello, { username }</h1>
 			<div className="mb-10 min-w-lg">
 				<div className="w-full flex-row-center-between">

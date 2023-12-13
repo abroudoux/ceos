@@ -14,9 +14,9 @@ export default function Auth() {
                 <p className="text-lg font-coolvetica text-muted-foreground font-light">Créez un compte ou connectez vous pour commencer à utiliser l'aplication</p>
             </div>
             <AuthForm />
-            <div className="w-full h-auto flex-row-center-center mt-12">
+            {/* <div className="w-full h-auto flex-row-center-center mt-12">
                 <img src={ scium } alt="Scium" className="h-full w-52" />
-            </div>
+            </div> */}
         </motion.section>
     );
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import { createRoot } from "react-dom/client";
 import { useLocation } from "react-router-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -40,6 +39,10 @@ const AppRoutes = () => {
 
     //     return () => clearTimeout(timeoutId);
     // }, []);
+
+    // if (!token) {
+    //     return <Navigate to="/welcome/1" />;
+    // }
 
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">

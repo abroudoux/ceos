@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 import { variantsSlideLeft } from "@/lib/animations";
 
@@ -22,7 +21,7 @@ export default function Welcome() {
     return (
         <section className="max-w-lg">
             {step === 1 && (
-                <div className="w-full h-screen py-8 px-6 flex-col-start-between bg-bg-blue max-w-lg" >
+                <div className="w-full h-screen py-16 px-6 flex-col-start-between bg-bg-blue max-w-lg" >
                     <h1 className="text-8xl font-rammetto text-blue flex-col-start">
                         Céos,
                         <br />
@@ -37,7 +36,7 @@ export default function Welcome() {
                         </div>
                     </div>
                     <div className="flex-row-center-center w-full">
-                        <Button variant={"outline"} size={"lg"} onClick={handleNext}>Suivant</Button>
+                        <Button variant={"outline"} size={"xl"} onClick={handleNext}>Suivant</Button>
                     </div>
                 </div>
             )}
@@ -54,7 +53,7 @@ export default function Welcome() {
                         </div>
                     </div>
                     <div className="flex-row-center-center w-full">
-                        <Button variant={"outline"} size={"lg"} onClick={handleNext}>Suivant</Button>
+                        <Button variant={"outline"} size={"xl"} onClick={handleNext}>Suivant</Button>
                     </div>
                 </motion.div>
             )}
@@ -72,7 +71,7 @@ export default function Welcome() {
                     </div>
                     <div className="flex-row-center-center w-full">
                         <Link to="/auth">
-                            <Button variant={"outline"} size={"lg"}>Commencer</Button>
+                            <Button variant={"outline"} size={"xl"}>Commencer</Button>
                         </Link>
                     </div>
                 </motion.div>

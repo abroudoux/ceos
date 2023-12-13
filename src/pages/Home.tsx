@@ -9,8 +9,7 @@ import useStore from "@/lib/store";
 import { CourseCard } from "@/components/CourseCard/CourseCard";
 import { DailyCourseCard } from "@/components/CourseCard/DailyCourseCard";
 import scium1 from "@/assets/img/scium3.png";
-import tä from "@/assets/img/tä.png";
-import logo from "@/assets/img/logo.png";
+import bâ from "@/assets/img/bâ.png";
 
 
 export default function Home() {
@@ -47,7 +46,6 @@ export default function Home() {
 
 	return (
 		<section className="page">
-			{/* <Link to="/welcome/1">Welcome</Link> */}
 			<p className="text-xl font-light mb-4 font-fields">Hello, <span className="font-normal">{ username }!</span></p>
 			<div className="mb-10 min-w-lg">
 				<div className="w-full flex-row-center-between">
@@ -58,10 +56,10 @@ export default function Home() {
 					<DailyCourseCard key={latestCourse.title} course={latestCourse} />
 				)}
 			</div>
-			<div className="mb-10">
+			<div>
 				<div className="w-full flex-row-center-between">
 					<h1 className="text-4xl font-fields">Recommandations</h1>
-					<img src={ tä } alt="Tä" className="w-16 h-auto scaleX(-1) -scale-x-100" />
+					<img src={ bâ } alt="Bâ" className="w-16 h-auto scaleX(-1) -scale-x-100" />
 				</div>
 				<ul>
 					{courses.map((course) => (

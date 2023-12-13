@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useSwipeable } from "react-swipeable";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import { variantsSlideLeft } from "@/lib/animations";
 
@@ -19,14 +19,10 @@ export default function Welcome() {
         setStep((prevStep) => prevStep + 1);
     };
 
-    const handlers = useSwipeable({
-        onSwipedLeft: () => handleNext(),
-    });
-
     return (
-        <section>
+        <section className="max-w-lg">
             {step === 1 && (
-                <div className="w-full h-full absolute left-0 py-8 px-6 flex-col-start-between bg-bg-blue max-w-lg" {...handlers}>
+                <div className="w-full h-screen py-8 px-6 flex-col-start-between bg-bg-blue max-w-lg" >
                     <h1 className="text-8xl font-rammetto text-blue flex-col-start">
                         Céos,
                         <br />
@@ -47,7 +43,7 @@ export default function Welcome() {
             )}
 
             {step === 2 && (
-                <motion.div className="w-full h-full absolute left-0 py-8 px-6 flex-col-center justify-between bg-bg-orange max-w-lg" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
+                <motion.div className="w-full h-screen py-8 px-6 flex-col-center justify-between bg-bg-orange max-w-lg" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
                     <h1 className="text-7xl font-rammetto text-orange">
                         Chaque problème a sa solution
                     </h1>
@@ -64,7 +60,7 @@ export default function Welcome() {
             )}
 
             {step === 3 && (
-                <motion.div className="w-full h-full absolute left-0 py-8 px-6 flex-col-center justify-between bg-bg-green max-w-lg" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
+                <motion.div className="w-full h-screen py-8 px-6 flex-col-center justify-between bg-bg-green max-w-lg" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
                     <h1 className="text-7xl font-rammetto text-green">
                         Le savoir à portée de main!
                     </h1>

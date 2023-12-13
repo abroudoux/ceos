@@ -14,6 +14,7 @@ import Course from "@/pages/Course";
 import Welcome from "@/pages/Welcome";
 import FavLessons from "@/pages/FavLessons";
 import FinishedLessons from "@/pages/FinishedLessons";
+import Podcasts from "@/pages/Podcasts";
 
 import Navbar from "@/components/Nav/Navbar";
 import Loader from "@/components/Loader/Loader";
@@ -50,6 +51,7 @@ const AppRoutes = () => {
                 <Route path="/profile/favourites" element={<FavLessons />}></Route>
                 <Route path="/profile/finished" element={<FinishedLessons />}></Route>
                 <Route path="/auth" element={<Auth />}></Route>
+                <Route path="/podcasts" element={<Podcasts />}></Route>
             </Routes>
             {/* {showLoader && <Loader />} */}
             {shouldShowNavBar && <Navbar />}

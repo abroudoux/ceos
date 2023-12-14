@@ -21,7 +21,7 @@ export default function Welcome() {
     return (
         <section className="max-w-lg">
             {step === 1 && (
-                <div className="w-full h-screen py-16 px-6 flex-col-start-between bg-bg-blue max-w-lg" >
+                <div className="w-full h-screen py-8 px-6 flex-col-start-between bg-bg-blue max-w-lg" >
                     <h1 className="text-8xl font-rammetto text-blue flex-col-start">
                         Céos,
                         <br />

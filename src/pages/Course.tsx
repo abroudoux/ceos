@@ -9,6 +9,7 @@ import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
 import { getBadgeColor } from "@/lib/getBadgeColor";
 import useStore from "@/lib/store";
+import { useTheme } from "@/config/theme-provider";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +21,7 @@ export default function Course() {
     const [course, setCourse] = useState<CourseProps | null>(null);
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const [isFinished, setIsFinished] = useState<boolean>(false);
+    const { theme } = useTheme();
 
     useEffect(() => {
         const fetchCourse = async () => {
@@ -99,15 +101,17 @@ export default function Course() {
                         </li>
                     </ul>
                 </div>
-                <MarkdownPreview source={ course.content } className="w-full px-3 pb-6 bg-background" />
+                <MarkdownPreview source={ course.content } className={`${theme === "dark" ? "" : "text-black"} w-full px-3 pb-6 bg-background`} />
             </article>
             <div className="mt-8 flex-row-center-center w-full gap-2">
                 <Button variant={"outline"} onClick={toggleFavorite} className="flex-row-center" size="icon">
                     <FontAwesomeIcon icon={faHeart} style={{ color: isFavorite ? "red" : "gray" }} />
                 </Button>
-                <Button variant={"outline"} onClick={toggleFinished}>
-                    <Link to="/">Terminer</Link>
-                </Button>
+                <Link to="/">
+                    <Button variant={"outline"} size={"lg"} onClick={toggleFinished}>
+                        Terminer
+                    </Button>
+                </Link>
             </div>
         </section>
     );

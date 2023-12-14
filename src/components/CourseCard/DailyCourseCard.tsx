@@ -4,9 +4,11 @@ import { faChartSimple, faClock } from "@fortawesome/free-solid-svg-icons";
 
 import { CourseProps } from "@/models/course.model";
 import { getBadgeColor } from "@/lib/getBadgeColor";
+import { useTheme } from "@/config/theme-provider";
 
 import { Badge } from "@/components/ui/badge";
 import tâ from "@/assets/img/dailyCourseTä.png";
+import tâLight from "@/assets/img/light/dailyCourseTäLight.png";
 
 
 interface CourseCardProps {
@@ -15,6 +17,7 @@ interface CourseCardProps {
 
 export const DailyCourseCard : React.FC<CourseCardProps> = ({ course }) => {
 
+    const { theme } = useTheme();
     const badgeColor = getBadgeColor(course.topic);
     console.log(badgeColor)
 
@@ -28,7 +31,7 @@ export const DailyCourseCard : React.FC<CourseCardProps> = ({ course }) => {
                 <h2 className="text-3xl font-semibold mb-4 font-fields">{ course.title }</h2>
                 <p className="text-lg font-light text-muted-foreground mb-6 font-fields">{ course.description }</p>
                 <div className="flex-row-center-center w-full mb-12">
-                    <img src={ tâ } alt="" className="h-full w-48" />
+                    <img src={theme === "dark" ? tâ : tâLight} alt="" className="h-full w-48" />
                 </div>
                 <ul className="flex-row-center-start gap-3 font-light text-base">
                     <li><FontAwesomeIcon icon={faChartSimple} /> { course.level }</li>

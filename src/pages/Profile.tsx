@@ -32,7 +32,7 @@ export default function Profile() {
 	};
 
     return (
-        <section className="page w-full">
+        <section className="page w-full min-w-[28rem]">
             <div className="w-full flex-row-center-between mb-10">
                 <Avatar>
                     <AvatarFallback>{ firstLetterUsername }</AvatarFallback>

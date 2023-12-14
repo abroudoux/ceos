@@ -45,7 +45,7 @@ export default function Home() {
     };
 
 	return (
-		<section className="page">
+		<section className="page mb-10">
 			<p className="text-xl font-light mb-4 font-fields">Hello, <span className="font-normal">{ username }!</span></p>
 			<div className="mb-10 min-w-lg">
 				<div className="w-full flex-row-center-between">

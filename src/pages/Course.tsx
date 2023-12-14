@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faHeart } from "@fortawesome/free-solid-svg-icons";
-import ReactMarkdown from "react-markdown";
 import { Navigate } from "react-router-dom";
+import MarkdownPreview from "@uiw/react-markdown-preview";
 
 import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
@@ -75,7 +75,7 @@ export default function Course() {
     };
 
     if (!token) {
-        return <Navigate to="/welcome/1" />;
+        return <Navigate to="/welcome" />;
     };
 
     const badgeColor = getBadgeColor(course.topic);
@@ -85,21 +85,21 @@ export default function Course() {
             <Link to="/">
                 <FontAwesomeIcon icon={faArrowLeft} />
             </Link>
-            <article className="rounded-lg my-2 border-grey-light border-[1px] flex-column-center-center py-6 px-5 w-full font-coolvetica">
-                <ul className="flex flex-row gap-2 mb-5">
-                    <li>
-                        <Badge variant={badgeColor}>{ course.topic }</Badge>
-                    </li>
-                    <li>
-                        <Badge variant="outline">{ course.duration }min</Badge>
-                    </li>
-                    <li>
-                        <Badge variant="outline">{ course.level }</Badge>
-                    </li>
-                </ul>
-                <h1 className="text-4xl font-normal mb-2 font-fields">{ course.title }</h1>
-                <p className="text-lg font-light text-muted-foreground mb-4">{ course.description }</p>
-                <ReactMarkdown>{ course.content }</ReactMarkdown>
+            <article className="rounded-lg my-2 border-grey-light border-[1px] flex-column-center-center w-full font-coolvetica">
+                <div className="pt-4 px-3 w-full">
+                    <ul className="flex flex-row gap-2 mb-5">
+                        <li>
+                            <Badge variant={badgeColor}>{ course.topic }</Badge>
+                        </li>
+                        <li>
+                            <Badge variant="outline">{ course.duration }min</Badge>
+                        </li>
+                        <li>
+                            <Badge variant="outline">{ course.level }</Badge>
+                        </li>
+                    </ul>
+                </div>
+                <MarkdownPreview source={ course.content } className="w-full px-3 pb-6 bg-background" />
             </article>
             <div className="mt-8 flex-row-center-center w-full gap-2">
                 <Button variant={"outline"} onClick={toggleFavorite} className="flex-row-center" size="icon">

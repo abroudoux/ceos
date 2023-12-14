@@ -6,7 +6,7 @@ import { CourseProps } from "@/models/course.model";
 import { getBadgeColor } from "@/lib/getBadgeColor";
 
 import { Badge } from "@/components/ui/badge";
-import tâ from "@/assets/img/tä.png";
+import tâ from "@/assets/img/dailyCourseTä.png";
 
 
 interface CourseCardProps {
@@ -27,8 +27,8 @@ export const DailyCourseCard : React.FC<CourseCardProps> = ({ course }) => {
                 </div>
                 <h2 className="text-3xl font-semibold mb-4 font-fields">{ course.title }</h2>
                 <p className="text-lg font-light text-muted-foreground mb-6 font-fields">{ course.description }</p>
-                <div className="flex-row-center-center w-full mb-16">
-                    <img src={ tâ } alt="" className="h-full w-32" />
+                <div className="flex-row-center-center w-full mb-12">
+                    <img src={ tâ } alt="" className="h-full w-48" />
                 </div>
                 <ul className="flex-row-center-start gap-3 font-light text-base">
                     <li><FontAwesomeIcon icon={faChartSimple} /> { course.level }</li>

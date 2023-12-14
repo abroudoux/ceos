@@ -8,7 +8,6 @@ import { useTheme } from "@/config/theme-provider";
 
 import { Badge } from "@/components/ui/badge";
 import tä from "@/assets/img/dailyCourseTä.png";
-import täLight from "@/assets/img/light/dailyCourseTäLight.png";
 
 
 interface CourseCardProps {
@@ -31,7 +30,7 @@ export const DailyCourseCard : React.FC<CourseCardProps> = ({ course }) => {
                 <h2 className="text-3xl font-semibold mb-4 font-fields">{ course.title }</h2>
                 <p className="text-lg font-light text-muted-foreground mb-6 font-fields">{ course.description }</p>
                 <div className="flex-row-center-center w-full mb-12">
-                    <img src={theme === "dark" ? tä : täLight} alt="" className="h-full w-48" />
+                    <img src={tä} alt="" className="h-full w-48" />
                 </div>
                 <ul className="flex-row-center-start gap-3 font-light text-base">
                     <li><FontAwesomeIcon icon={faChartSimple} /> { course.level }</li>

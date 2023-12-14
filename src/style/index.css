@@ -63,8 +63,7 @@
 
 @layer base {
     * {
-        @apply border-border background-gradient;
-        font-family: "coolvetica", sans-serif;
+        @apply border-border background-gradient font-normal;
     }
     body {
         @apply bg-background text-foreground flex flex-col items-center justify-between;

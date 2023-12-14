@@ -4,10 +4,12 @@ import { Navigate } from "react-router-dom";
 
 import useStore from "@/lib/store";
 import { supabase } from "@/lib/supabase";
+
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import ColorCard from "@/components/ColorCard/ColorCard";
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
 
 
@@ -32,14 +34,29 @@ export default function Profile() {
 	};
 
     return (
-        <section className="page w-full">
+        <section className="page w-full min-w-[28rem]">
             <div className="w-full flex-row-center-between mb-10">
                 <Avatar>
                     <AvatarFallback>{ firstLetterUsername }</AvatarFallback>
                 </Avatar>
                 <div className="flex-row-center-center gap-2">
                     <ModeToggle />
-                    <Button onClick={signOutSession} variant={"secondary"} className="font-normal">Déconnexion</Button>
+                    <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                            <Button variant="secondary">Déconnexion</Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>Se déconnecter ?</AlertDialogTitle>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel>Annuler</AlertDialogCancel>
+                                <AlertDialogAction className="min-w-[16rem] bg-white text-background border-[1px] hover:bg-background hover:text-white" onClick={signOutSession}>
+                                    Continuer
+                                </AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
                 </div>
             </div>
             <h1 className="text-4xl mb-2 font-fields">Hello, { username }</h1>

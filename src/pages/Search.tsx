@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom";
 import { CourseProps } from "@/models/course.model";
 import { supabase } from "@/lib/supabase";
 import useStore from "@/lib/store";
+import { useTheme } from "@/config/theme-provider";
 
 import { CourseCard } from "@/components/CourseCard/CourseCard";
 import { Label } from "@/components/ui/label";
@@ -15,6 +16,7 @@ export default function Search() {
 	const [courses, setCourses] = useState<CourseProps[]>([]);
 	const [filteredCourses, setFilteredCourses] = useState<CourseProps[]>([]);
     const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
+	const { theme } = useTheme();
 
 	const filterOptions = ["code", "video", "design", "marketing", "communication"];
 
@@ -63,7 +65,7 @@ export default function Search() {
 				<h1 className="text-4xl mb-4 font-fields">Toutes les leçons</h1>
 				<div>
 					<Label htmlFor="filter" className="text-lg font-light font-fields">Topic :</Label>
-					<select id="filter" onChange={(e) => handleFilterChange(e)} value={selectedFilter || ""} className="ml-2 border-[1px] border-white font-light font-fields py-2 px-3 rounded-lg mb-3" >
+					<select id="filter" onChange={(e) => handleFilterChange(e)} value={selectedFilter || ""} className={`ml-2 border-[1px] ${theme === "dark" ? "border-white" : "border-black"} font-light font-fields py-2 px-3 rounded-lg mb-3`} >
 						<option value="">tout</option>
 						{filterOptions.map((option) => (
 							<option key={option} value={option}>

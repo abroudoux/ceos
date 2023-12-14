@@ -19,7 +19,8 @@ module.exports = {
       fontFamily: {
         'fields': ['fields', 'sans-serif'],
         'coolvetica': ['coolvetica', 'sans-serif'],
-        'rammetto': ['Rammetto One', 'sans-serif']
+        'rammetto': ['Rammetto One', 'sans-serif'],
+        'source': ['Source Sans 3', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

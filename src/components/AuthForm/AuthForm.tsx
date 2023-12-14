@@ -77,6 +77,7 @@ export default function AuthForm() {
                 toast.error("Error signing up");
             } else {
                 console.log("Sign up successful:", data);
+                signIn();
                 navigate("/");
             };
         } catch (error: any) {

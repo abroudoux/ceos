@@ -12,7 +12,7 @@ export default function Auth() {
     const { token } = useStore();
 
     if (token) {
-        return <Navigate to="/" />;
+        return <Navigate to="/"/>;
     };
 
     return (

@@ -21,7 +21,7 @@ export default function Welcome() {
     return (
         <section className="max-w-lg min-w-[32rem]">
             {step === 1 && (
-                <div className="w-full h-screen py-8 px-12 flex-col-start-between bg-bg-blue min-w-[32rem]" >
+                <div className="w-full h-screen py-8 px-14 flex-col-start-between bg-bg-blue min-w-[32rem]" >
                     <h1 className="text-6xl font-rammetto text-blue flex-col-start">
                         Céos,
                         <br />
@@ -34,14 +34,14 @@ export default function Welcome() {
                             <img src={ scium } alt="Scium" className="h-full w-52" />
                         </div>
                     </div>
-                    <div className="flex-row-center-center w-full">
+                    <div className="flex-row-center-center w-full mb-16">
                         <Button variant={"outline"} size={"xl"} onClick={handleNext}>Suivant</Button>
                     </div>
                 </div>
             )}
 
             {step === 2 && (
-                <motion.div className="w-full h-screen py-10 px-12 flex-col-center justify-between bg-bg-orange min-w-[32rem]" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
+                <motion.div className="w-full h-screen py-10 px-14 flex-col-center justify-between bg-bg-orange min-w-[32rem]" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
                     <h1 className="text-6xl font-rammetto text-orange">
                         Chaque problème a sa solution
                     </h1>
@@ -50,14 +50,14 @@ export default function Welcome() {
                             <img src={ bâ } alt="Bâ" className="h-full w-52" />
                         </div>
                     </div>
-                    <div className="flex-row-center-center w-full">
+                    <div className="flex-row-center-center w-full mb-16">
                         <Button variant={"outline"} size={"xl"} onClick={handleNext}>Suivant</Button>
                     </div>
                 </motion.div>
             )}
 
             {step === 3 && (
-                <motion.div className="w-full h-screen py-8 px-12 flex-col-center justify-between bg-bg-green min-w-[32rem]" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
+                <motion.div className="w-full h-screen py-8 px-14 flex-col-center justify-between bg-bg-green min-w-[32rem]" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
                     <h1 className="text-6xl font-rammetto text-green">
                         Le savoir à portée de main!
                     </h1>
@@ -66,7 +66,7 @@ export default function Welcome() {
                             <img src={ tä } alt="Tä" className="h-full w-52" />
                         </div>
                     </div>
-                    <div className="flex-row-center-center w-full">
+                    <div className="flex-row-center-center w-full mb-16">
                         <Link to="/auth">
                             <Button variant={"outline"} size={"xl"}>Commencer</Button>
                         </Link>

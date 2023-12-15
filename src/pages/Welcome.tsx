@@ -19,9 +19,9 @@ export default function Welcome() {
     };
 
     return (
-        <section className="max-w-lg">
+        <section className="max-w-lg min-w-[32rem]">
             {step === 1 && (
-                <div className="w-full h-screen py-8 px-10 flex-col-start-between bg-bg-blue max-w-lg min-w-[28rem]" >
+                <div className="w-full h-screen py-8 px-12 flex-col-start-between bg-bg-blue min-w-[32rem]" >
                     <h1 className="text-6xl font-rammetto text-blue flex-col-start">
                         Céos,
                         <br />
@@ -41,7 +41,7 @@ export default function Welcome() {
             )}
 
             {step === 2 && (
-                <motion.div className="w-full h-screen py-10 px-6 flex-col-center justify-between bg-bg-orange max-w-lg min-w-[28rem]" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
+                <motion.div className="w-full h-screen py-10 px-12 flex-col-center justify-between bg-bg-orange min-w-[32rem]" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
                     <h1 className="text-6xl font-rammetto text-orange">
                         Chaque problème a sa solution
                     </h1>
@@ -57,7 +57,7 @@ export default function Welcome() {
             )}
 
             {step === 3 && (
-                <motion.div className="w-full h-screen py-8 px-10 flex-col-center justify-between bg-bg-green max-w-lg min-w-[28rem]" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
+                <motion.div className="w-full h-screen py-8 px-12 flex-col-center justify-between bg-bg-green min-w-[32rem]" initial="hidden" animate="visible" variants={ variantsSlideLeft }>
                     <h1 className="text-6xl font-rammetto text-green">
                         Le savoir à portée de main!
                     </h1>

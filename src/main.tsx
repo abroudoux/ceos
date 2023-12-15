@@ -30,15 +30,15 @@ const AppRoutes = () => {
     const showNavBar = ["/", "/search", "/profile"];
     const shouldShowNavBar = showNavBar.includes(location.pathname);
 
-    // const [showLoader, setShowLoader] = React.useState(true);
+    const [showLoader, setShowLoader] = React.useState(true);
 
-    // React.useEffect(() => {
-    //     const timeoutId = setTimeout(() => {
-    //         setShowLoader(false);
-    //     }, 3000);
+    React.useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setShowLoader(false);
+        }, 3000);
 
-    //     return () => clearTimeout(timeoutId);
-    // }, []);
+        return () => clearTimeout(timeoutId);
+    }, []);
 
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -53,7 +53,7 @@ const AppRoutes = () => {
                 <Route path="/auth" element={<Auth />}></Route>
                 <Route path="/podcasts" element={<Podcasts />}></Route>
             </Routes>
-            {/* {showLoader && <Loader />} */}
+            {showLoader && <Loader />}
             {shouldShowNavBar && <Navbar />}
             <Toaster richColors />
         </ThemeProvider>
